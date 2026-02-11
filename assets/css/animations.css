@@ -1,0 +1,232 @@
+/* assets/css/animations.css */
+@keyframes meshDrift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Quiet Luxury Texture: Ultra-Subtle Fabric + Noise */
+.bg-textured-luxury {
+    background-color: #FDFBF9;
+    /* brand-pearl */
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-textured-luxury::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Subtle Linen/Fabric Texture */
+    background-image: url("https://www.transparenttextures.com/patterns/binding-light.png");
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bg-textured-luxury::after {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    width: 300%;
+    height: 300%;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.02;
+    /* Extremely slow steps for "almost static" feel */
+    animation: noiseDrift 20s steps(8) infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes noiseDrift {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(-0.5%, -0.5%);
+    }
+
+    20% {
+        transform: translate(0.5%, 0.5%);
+    }
+
+    40% {
+        transform: translate(-0.2%, 0.8%);
+    }
+
+    60% {
+        transform: translate(0.8%, -0.2%);
+    }
+
+    80% {
+        transform: translate(-0.5%, 0.5%);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+
+
+/* Page Transitions */
+.page-reveal {
+    animation: pageReveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes pageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.99);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* Enhanced Hover State */
+.hover-lift {
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.6s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px) scale(1.01);
+}
+
+.bg-mesh-elegant {
+    background: linear-gradient(-45deg, #E2AFA8, #FDFBF9, #E9DCC9, #C58C7E);
+    background-size: 400% 400%;
+    animation: meshDrift 15s ease infinite;
+}
+
+@keyframes bokehFloat {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.1;
+    }
+
+    50% {
+        transform: translateY(-30px) translateX(10px) scale(1.1);
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: translateY(-60px) translateX(-5px) scale(1.05);
+        opacity: 0.1;
+    }
+}
+
+/* Brand Themed Loader */
+.preloader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #F5F1EE;
+    /* var(--brand-pearl) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.loader {
+    width: 60px;
+    aspect-ratio: 1;
+    display: grid;
+    border: 3px solid #0000;
+    border-radius: 50%;
+    border-color: #D8C3A5 #0000;
+    /* brand-champagne */
+    animation: luxury-spin 1.5s infinite linear;
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 4px;
+    border: inherit;
+    border-radius: 50%;
+}
+
+.loader::before {
+    border-color: #C98F80 #0000;
+    /* brand-rose */
+    animation: inherit;
+    animation-duration: 0.75s;
+    animation-direction: reverse;
+}
+
+.loader::after {
+    margin: 12px;
+    border-color: #B76E79 #0000;
+    /* brand-gold */
+}
+
+@keyframes luxury-spin {
+    100% {
+        transform: rotate(1turn)
+    }
+}
+
+.preloader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Modern Boutique: Floating Glass Panels (Dark Tint for Contrast) */
+.glass-panel {
+    background: rgba(46, 42, 41, 0.7);
+    /* brand-dark with opacity */
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.3);
+    border-radius: 32px;
+}
+
+.drifting {
+    animation: slowDrift 15s ease-in-out infinite;
+}
+
+@keyframes slowDrift {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-10px) translateX(6px) rotate(0.5deg);
+    }
+
+    66% {
+        transform: translateY(6px) translateX(-3px) rotate(-0.5deg);
+    }
+}
+
+.bokeh-particle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: bokehFloat var(--duration) ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}

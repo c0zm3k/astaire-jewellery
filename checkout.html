@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Astaire Fine Jewellery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            rose: '#C98F80',
+                            pearl: '#F5F1EE',
+                            gold: '#B76E79',
+                            dark: '#2E2A29',
+                            champagne: '#D8C3A5',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-brand-pearl text-brand-dark font-sans antialiased page-reveal">
+    <!-- Brand Preloader -->
+    <div id="preloader" class="preloader-overlay">
+        <div class="loader"></div>
+    </div>
+    <!-- Header (Propagated) -->
+    <nav class="fixed w-full z-50 bg-brand-pearl/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="h-10">
+                    <img src="assets/images/logo.jpg" alt="Astaire" class="h-full">
+                </a>
+                <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-brand-gold transition">Home</a>
+                    <a href="collection.html" class="hover:text-brand-gold transition">Collections</a>
+                    <a href="catalogue.html" class="hover:text-brand-gold transition">Shop</a>
+                    <a href="about.html" class="hover:text-brand-gold transition">About</a>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="cart.html" class="relative group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-shopping-bag group-hover:text-brand-gold transition">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                            <path d="M3 6h18" />
+                            <path d="M16 10a4 4 0 0 1-8 0" />
+                        </svg>
+                        <span id="cartCount"
+                            class="absolute -top-2 -right-2 bg-brand-rose text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Checkout Form -->
+            <div class="space-y-12">
+                <section>
+                    <h2 class="text-2xl font-serif mb-8 flex items-center gap-4">
+                        <span
+                            class="w-8 h-8 rounded-full border border-brand-dark flex items-center justify-center text-[10px] font-medium pt-0.5">1</span>
+                        Shipping Information
+                    </h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="First Name"
+                            class="col-span-1 p-4 bg-white border border-transparent focus:border-brand-rose outline-none text-sm rounded-lg transition">
+                        <input type="text" placeholder="Last Name"
+                            class="col-span-1 p-4 bg-white border border-transparent focus:border-brand-rose outline-none text-sm rounded-lg transition">
+                        <input type="email" placeholder="Email Address"
+                            class="col-span-2 p-4 bg-white border border-transparent focus:border-brand-rose outline-none text-sm rounded-lg transition">
+                        <input type="text" placeholder="Address"
+                            class="col-span-2 p-4 bg-white border border-transparent focus:border-brand-rose outline-none text-sm rounded-lg transition">
+                        <input type="text" placeholder="City"
+                            class="col-span-1 p-4 bg-white border border-transparent focus:border-brand-rose outline-none text-sm rounded-lg transition">
+                        <input type="text" placeholder="Postal Code"
+                            class="col-span-1 p-4 bg-white border border-transparent focus:border-brand-rose outline-none text-sm rounded-lg transition">
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-serif mb-8 flex items-center gap-4">
+                        <span
+                            class="w-8 h-8 rounded-full border border-brand-dark flex items-center justify-center text-[10px] font-medium pt-0.5">2</span>
+                        Payment Details
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="relative">
+                            <div id="paymentSelector"
+                                class="p-4 bg-white border border-brand-rose rounded-lg flex justify-between items-center cursor-pointer transition-all duration-300">
+                                <span id="selectedPaymentMethod" class="text-sm font-medium">Credit / Debit Card</span>
+                                <div class="flex items-center gap-3">
+                                    <div id="cardIcons" class="flex gap-3">
+                                        <!-- Visa SVG -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="20"
+                                            viewBox="0 0 24 15" fill="none">
+                                            <path d="M10.16 11.23L11.53 2.76H13.71L12.34 11.23H10.16Z" fill="#1A1F71" />
+                                            <path
+                                                d="M18.89 2.87C18.42 2.68 17.65 2.5 16.79 2.5C14.73 2.5 13.27 3.55 13.25 5.06C13.24 6.18 14.3 6.8 15.11 7.18C15.94 7.57 16.22 7.82 16.22 8.16C16.21 8.69 15.54 8.92 14.93 8.92C13.89 8.92 13.29 8.64 12.81 8.44L12.42 10.18C12.92 10.4 13.85 10.59 14.81 10.6C16.99 10.6 18.42 9.56 18.44 7.95C18.45 6.64 17.61 6.13 16.48 5.61C15.8 5.28 15.45 5.06 15.46 4.75C15.46 4.41 15.86 4.04 16.71 4.04C17.43 4.03 18.04 4.18 18.52 4.38L18.89 2.87Z"
+                                                fill="#1A1F71" />
+                                            <path
+                                                d="M22.56 2.76C22.06 2.76 21.64 3.04 21.45 3.48L18.3 11.23H20.59L21.05 9.92H23.86L24.12 11.23H26.12L24.38 2.76H22.56ZM22.86 4.67L23.59 8.21H21.65L22.86 4.67Z"
+                                                fill="#1A1F71" />
+                                            <path
+                                                d="M4.64 2.76L2.34 8.5C2.12 9.07 2.06 9.24 1.58 9.57C0.77 10.12 0 10.19 0 10.19L0.05 10.43H4.21C4.68 10.43 5.08 10.14 5.2 9.68L6.2 4.7L8.49 11.23H10.79L14.33 2.76H12.04L10.23 7.55C9.9 8.44 9.8 8.7 9.8 8.7L8.27 2.76H4.64V2.76Z"
+                                                fill="#F7B600" />
+                                        </svg>
+                                        <!-- Mastercard SVG -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="20"
+                                            viewBox="0 0 24 15" fill="none">
+                                            <circle cx="7" cy="7.5" r="7" fill="#EB001B" />
+                                            <circle cx="17" cy="7.5" r="7" fill="#F79E1B" />
+                                            <path
+                                                d="M12 7.5C12 4.66 13.1 2.08 14.88 0.17C13.99 0.06 13.08 0 12.15 0C8.01 0 4.65 3.36 4.65 7.5C4.65 11.64 8.01 15 12.15 15C13.08 15 13.99 14.94 14.88 14.83C13.1 12.92 12 10.34 12 7.5Z"
+                                                fill="#FF5F00" />
+                                        </svg>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-chevron-down transition-transform duration-300"
+                                        id="dropdownArrow">
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- Dropdown Options -->
+                            <div id="paymentDropdown"
+                                class="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-lg shadow-xl hidden z-20 overflow-hidden">
+                                <div class="payment-option p-4 hover:bg-brand-pearl cursor-pointer transition flex justify-between items-center"
+                                    data-method="card">
+                                    <span class="text-sm">Credit / Debit Card</span>
+                                </div>
+                                <div class="payment-option p-4 hover:bg-brand-pearl cursor-pointer transition flex justify-between items-center border-t border-brand-pearl"
+                                    data-method="paypal">
+                                    <span class="text-sm">PayPal</span>
+                                    <span
+                                        class="text-[10px] text-brand-gold font-medium uppercase tracking-tighter">Instant</span>
+                                </div>
+                                <div class="payment-option p-4 hover:bg-brand-pearl cursor-pointer transition flex justify-between items-center border-t border-brand-pearl"
+                                    data-method="bank">
+                                    <span class="text-sm">Bank Transfer</span>
+                                    <span class="text-[10px] text-gray-400 font-medium uppercase tracking-tighter">2-3
+                                        Days</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="cardDetailsForm" class="grid grid-cols-2 gap-4">
+                            <input type="text" placeholder="Card Number"
+                                class="col-span-2 p-4 bg-white border border-transparent focus:border-brand-rose outline-none text-sm rounded-lg transition">
+                            <input type="text" placeholder="MM / YY"
+                                class="col-span-1 p-4 bg-white border border-transparent focus:border-brand-rose outline-none text-sm rounded-lg transition">
+                            <input type="text" placeholder="CVV"
+                                class="col-span-1 p-4 bg-white border border-transparent focus:border-brand-rose outline-none text-sm rounded-lg transition">
+                        </div>
+                        <div id="paypalRedirect" class="hidden text-center py-6 bg-brand-pearl rounded-lg">
+                            <p class="text-sm opacity-60">You will be redirected to PayPal to complete your purchase.
+                            </p>
+                        </div>
+                        <div id="bankDetails" class="hidden p-6 bg-brand-pearl rounded-lg space-y-2">
+                            <p class="text-[10px] uppercase tracking-widest opacity-40">Transfer to:</p>
+                            <p class="text-sm font-medium">ASTAIRE JEWELLERY LUXE LTD</p>
+                            <p class="text-sm opacity-60">SWIFT: ASTAJW2B</p>
+                            <p class="text-sm opacity-60">IBAN: IT99 3840 2384 1029 3847 2837</p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <button
+                    class="w-full bg-brand-dark text-white py-5 rounded-full uppercase tracking-widest text-xs hover:bg-black transition duration-500 shadow-xl">
+                    Place Order
+                </button>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="lg:sticky lg:top-32 h-fit">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-rose/10">
+                    <h3 class="text-xl font-serif mb-8">Order Summary</h3>
+                    <div id="checkoutSummaryItems" class="space-y-6 mb-8 max-h-[400px] overflow-y-auto pr-2">
+                        <!-- Items will be injected here -->
+                    </div>
+
+                    <div class="space-y-4 pt-6 border-t border-gray-100">
+                        <div class="flex justify-between text-sm opacity-60">
+                            <span>Subtotal</span>
+                            <span id="summarySubtotal">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-sm opacity-60">
+                            <span>Shipping</span>
+                            <span>Complimentary</span>
+                        </div>
+                        <div class="flex justify-between text-lg font-serif pt-4">
+                            <span>Total</span>
+                            <span id="summaryTotal" class="text-brand-rose font-bold">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-brand-dark text-brand-pearl py-20 mt-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
+                <div class="text-center md:text-left">
+                    <img src="assets/images/logo.jpg" alt="Astaire"
+                        class="h-12 mb-6 mx-auto md:mx-0 brightness-200 grayscale">
+                    <p class="text-xs opacity-60 leading-relaxed mb-8 max-w-xs mx-auto md:mx-0">
+                        Crafting timeless beauty since 1994. Our commitment to excellence and ethical sourcing defines
+                        every piece.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-6">
+                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-instagram">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h3 class="font-serif text-xl mb-6">Location</h3>
+                    <div
+                        class="w-full h-40 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.751351185347!2d75.70119257616603!3d31.25533366019558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5f5e9c489cf3%3A0x4049a5409d00c3b!2sLovely+Professional+University!5e0!3m2!1sen!2sin!4v1707669000000"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <p class="mt-4 text-[10px] opacity-50 uppercase tracking-widest">Global Flagship, Milan, Italy</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <h3 class="font-serif text-xl mb-6">Explore</h3>
+                    <ul class="space-y-4 text-xs uppercase tracking-widest opacity-80">
+                        <li><a href="collection.html" class="hover:text-brand-rose">Collections</a></li>
+                        <li><a href="catalogue.html" class="hover:text-brand-rose">Shop Online</a></li>
+                        <li><a href="about.html" class="hover:text-brand-rose">Our Story</a></li>
+                        <li><a href="#" class="hover:text-brand-rose">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-20 pt-8 border-t border-white/10 text-center">
+                <p class="text-[10px] opacity-40 uppercase tracking-widest">© 2024 Astaire Fine Jewellery. Empowering
+                    Elegance Everywhere.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const summaryContainer = document.getElementById('checkoutSummaryItems');
+            const subtotalEl = document.getElementById('summarySubtotal');
+            const totalEl = document.getElementById('summaryTotal');
+
+            const cartItems = JSON.parse(localStorage.getItem('astaire_cart')) || [];
+            let subtotal = 0;
+
+            if (cartItems.length === 0) {
+                summaryContainer.innerHTML = '<p class="text-sm opacity-50 italic">Your bag is empty.</p>';
+            } else {
+                summaryContainer.innerHTML = cartItems.map(item => {
+                    const price = typeof item.price === 'string' ? parseFloat(item.price.replace('$', '').replace(',', '')) : item.price;
+                    subtotal += price * item.quantity;
+                    const displayPrice = typeof item.price === 'string' ? item.price : `$${item.price.toLocaleString()}`;
+                    return `
+                        <div class="flex gap-4 items-center">
+                            <div class="w-16 h-16 bg-brand-pearl rounded-lg overflow-hidden shrink-0">
+                                <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-sm font-medium leading-tight">${item.name}</h4>
+                                <p class="text-[10px] opacity-50 uppercase mt-1">Qty: ${item.quantity}</p>
+                            </div>
+                            <span class="text-sm font-medium">${displayPrice}</span>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            subtotalEl.textContent = `$${subtotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            totalEl.textContent = `$${subtotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+            // Update cart count badge
+            Cart.updateBadge();
+
+            // Payment Selector Logic
+            const selector = document.getElementById('paymentSelector');
+            const dropdown = document.getElementById('paymentDropdown');
+            const arrow = document.getElementById('dropdownArrow');
+            const selectedText = document.getElementById('selectedPaymentMethod');
+            const cardIcons = document.getElementById('cardIcons');
+
+            const cardForm = document.getElementById('cardDetailsForm');
+            const paypalMsg = document.getElementById('paypalRedirect');
+            const bankDetails = document.getElementById('bankDetails');
+
+            selector.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('hidden');
+                arrow.classList.toggle('rotate-180');
+            });
+
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    const method = option.dataset.method;
+                    const methodName = option.querySelector('span').innerText;
+
+                    selectedText.innerText = methodName;
+                    dropdown.classList.add('hidden');
+                    arrow.classList.remove('rotate-180');
+
+                    // Toggle visibility based on method
+                    cardForm.classList.add('hidden');
+                    paypalMsg.classList.add('hidden');
+                    bankDetails.classList.add('hidden');
+                    cardIcons.classList.add('hidden');
+
+                    if (method === 'card') {
+                        cardForm.classList.remove('hidden');
+                        cardIcons.classList.remove('hidden');
+                    } else if (method === 'paypal') {
+                        paypalMsg.classList.remove('hidden');
+                    } else if (method === 'bank') {
+                        bankDetails.classList.remove('hidden');
+                    }
+                });
+            });
+
+            document.addEventListener('click', () => {
+                dropdown.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            });
+        });
+    </script>
+</body>
+
+</html>

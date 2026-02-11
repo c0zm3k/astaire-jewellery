@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections - Astaire Fine Jewellery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script src="assets/js/main.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { rose: '#E2AFA8', pearl: '#FDFBF9', gold: '#C58C7E', dark: '#3D3534' }
+                    },
+                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Poppins', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand-pearl text-brand-dark font-sans antialiased page-reveal">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-pearl/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="h-10">
+                    <img src="assets/images/logo.jpg" alt="Astaire" class="h-full">
+                </a>
+
+                <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-brand-gold transition duration-300">Home</a>
+                    <a href="collection.html" class="text-brand-rose">Collections</a>
+                    <a href="catalogue.html" class="hover:text-brand-gold transition duration-300">Shop</a>
+                    <a href="about.html" class="hover:text-brand-gold transition duration-300">About</a>
+                </div>
+
+                <div class="flex space-x-6 items-center">
+                    <div class="relative group">
+                        <input type="text" placeholder="Search..."
+                            class="w-0 group-hover:w-40 focus:w-40 transition-all duration-500 bg-transparent border-b border-brand-rose focus:outline-none text-sm px-2 py-1 placeholder:text-gray-400">
+                        <button class="hover:text-brand-gold transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-search">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" />
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="cart.html" class="relative hover:text-brand-gold transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-shopping-bag">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                            <path d="M3 6h18" />
+                            <path d="M16 10a4 4 0 0 1-8 0" />
+                        </svg>
+                        <span id="cartCount"
+                            class="absolute -top-2 -right-2 bg-brand-rose text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-medium">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-5xl font-serif text-center mb-20">Curated Collections</h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="group relative h-[600px] overflow-hidden rounded-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&q=80&w=1200"
+                        class="absolute inset-0 w-full h-full object-cover transition duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition duration-500"></div>
+                    <div class="absolute bottom-12 left-12 text-white">
+                        <p class="text-[10px] uppercase tracking-[0.5em] mb-4 font-light">Ethereal</p>
+                        <h2 class="text-4xl font-serif mb-6">The Bridal Boutique</h2>
+                        <a href="catalogue.html"
+                            class="inline-block border-b border-white/50 pb-1 text-[10px] uppercase tracking-[0.2em] font-medium hover:border-white transition duration-300">Discover</a>
+                    </div>
+                </div>
+
+                <div class="group relative h-[600px] overflow-hidden rounded-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1512163143273-bde0e3cc7407?auto=format&fit=crop&q=80&w=1200"
+                        class="absolute inset-0 w-full h-full object-cover transition duration-1000 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition duration-500"></div>
+                    <div class="absolute bottom-12 left-12 text-white">
+                        <p class="text-xs uppercase tracking-[0.4em] mb-4">Modern</p>
+                        <h2 class="text-4xl font-serif mb-6">Minimalist Gold</h2>
+                        <a href="catalogue.html"
+                            class="inline-block border-b border-white pb-1 text-sm uppercase tracking-widest">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eternal Rose Necklace - Astaire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script src="assets/js/main.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            rose: '#C98F80',
+                            pearl: '#F5F1EE',
+                            gold: '#B76E79',
+                            dark: '#2E2A29',
+                            champagne: '#D8C3A5',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+
+<body class="bg-brand-pearl text-brand-dark font-sans antialiased page-reveal">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-pearl/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="h-10">
+                    <img src="assets/images/logo.jpg" alt="Astaire" class="h-full">
+                </a>
+
+                <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+                    <a href="index.html" class="hover:text-brand-gold transition duration-300">Home</a>
+                    <a href="collection.html" class="hover:text-brand-gold transition duration-300">Collections</a>
+                    <a href="catalogue.html" class="text-brand-rose">Shop</a>
+                    <a href="about.html" class="hover:text-brand-gold transition duration-300">About</a>
+                </div>
+
+                <div class="flex space-x-6 items-center">
+                    <div class="relative group">
+                        <input type="text" placeholder="Search..."
+                            class="w-0 group-hover:w-40 focus:w-40 transition-all duration-500 bg-transparent border-b border-brand-rose focus:outline-none text-sm px-2 py-1 placeholder:text-gray-400">
+                        <button class="hover:text-brand-gold transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-search">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" />
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="cart.html" class="relative hover:text-brand-gold transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-shopping-bag">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                            <path d="M3 6h18" />
+                            <path d="M16 10a4 4 0 0 1-8 0" />
+                        </svg>
+                        <span id="cartCount"
+                            class="absolute -top-2 -right-2 bg-brand-rose text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-medium">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <!-- Gallery -->
+            <div class="space-y-4">
+                <div class="aspect-[4/5] rounded-xl overflow-hidden shadow-lg">
+                    <img id="mainImage"
+                        src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Info -->
+            <div class="py-8">
+                <h1 class="text-4xl font-serif mb-4">Eternal Rose Necklace</h1>
+                <p class="text-2xl text-brand-gold font-serif mb-8">$1,250</p>
+
+                <p class="text-gray-500 font-light leading-relaxed mb-12">
+                    A masterpiece of rose gold and delicately set diamonds, inspired by the ethereal beauty of a
+                    blooming garden at dawn.
+                </p>
+
+                <div class="space-y-8 mb-12">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gray-400 block mb-4">Select Length</span>
+                        <div class="flex gap-4" id="sizeSelector">
+                            <button onclick="selectSize(this)"
+                                class="px-6 py-2 border border-gray-200 rounded text-sm hover:border-brand-rose transition active-size">16"</button>
+                            <button onclick="selectSize(this)"
+                                class="px-6 py-2 border border-gray-200 rounded text-sm hover:border-brand-rose transition">18"</button>
+                            <button onclick="selectSize(this)"
+                                class="px-6 py-2 border border-gray-200 rounded text-sm hover:border-brand-rose transition">20"</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <div class="flex border border-gray-200 rounded items-center px-4">
+                        <button onclick="updateQty(-1)" class="p-2 text-gray-400">-</button>
+                        <input id="qty" type="text" value="1" readonly
+                            class="w-12 text-center bg-transparent border-none focus:ring-0">
+                        <button onclick="updateQty(1)" class="p-2 text-gray-400">+</button>
+                    </div>
+                    <button onclick="handleAddToCart()"
+                        class="flex-1 bg-brand-dark text-white py-4 rounded-full uppercase tracking-widest text-xs hover:bg-brand-gold transition duration-500 shadow-xl shadow-brand-rose/20">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let selectedSize = '16"';
+
+        function selectSize(btn) {
+            document.querySelectorAll('#sizeSelector button').forEach(b => b.classList.remove('border-brand-rose', 'text-brand-rose'));
+            btn.classList.add('border-brand-rose', 'text-brand-rose');
+            selectedSize = btn.innerText;
+        }
+
+        function updateQty(change) {
+            const input = document.getElementById('qty');
+            let val = parseInt(input.value) + change;
+            if (val >= 1) input.value = val;
+        }
+
+        function handleAddToCart() {
+            Cart.addItem({
+                id: 'n1',
+                name: 'Eternal Rose Necklace',
+                price: 1250,
+                image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=200',
+                size: selectedSize,
+                quantity: parseInt(document.getElementById('qty').value)
+            });
+        }
+
+        // Init first size
+        selectSize(document.querySelector('#sizeSelector button'));
+    </script>
+    <footer class="bg-brand-dark text-brand-pearl py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
+                <div class="text-center md:text-left">
+                    <img src="assets/images/logo.jpg" alt="Astaire"
+                        class="h-12 mb-6 mx-auto md:mx-0 brightness-200 grayscale">
+                    <p class="text-xs opacity-60 leading-relaxed mb-8 max-w-xs mx-auto md:mx-0">
+                        Crafting timeless beauty since 1994. Our commitment to excellence and ethical sourcing defines
+                        every piece.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-6">
+                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-instagram">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect width="4" height="12" x="2" y="9" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h3 class="font-serif text-xl mb-6">Location</h3>
+                    <div
+                        class="w-full h-40 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition duration-500 border border-white/10">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.751351185347!2d75.70119257616603!3d31.25533366019558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5f5e9c489cf3%3A0x4049a5409d00c3b!2sLovely+Professional+University!5e0!3m2!1sen!2sin!4v1707669000000"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                    <p class="mt-4 text-[10px] opacity-50 uppercase tracking-widest">Global Flagship, Milan, Italy</p>
+                </div>
+
+                <div class="text-center md:text-right">
+                    <h3 class="font-serif text-xl mb-6">Explore</h3>
+                    <ul class="space-y-4 text-xs uppercase tracking-widest opacity-80">
+                        <li><a href="collection.html" class="hover:text-brand-rose">Collections</a></li>
+                        <li><a href="catalogue.html" class="hover:text-brand-rose">Shop Online</a></li>
+                        <li><a href="about.html" class="hover:text-brand-rose">Our Story</a></li>
+                        <li><a href="#" class="hover:text-brand-rose">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-20 pt-8 border-t border-white/10 text-center">
+                <p class="text-[10px] opacity-40 uppercase tracking-widest">© 2024 Astaire Fine Jewellery. Empowering
+                    Elegance Everywhere.</p>
+            </div>
+        </div>
+    </footer>
+
+</html>

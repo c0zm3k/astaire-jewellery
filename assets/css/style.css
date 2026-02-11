@@ -1,0 +1,23 @@
+/* Custom Overrides for Astaire Fine Jewellery */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap');
+
+:root {
+    --brand-rose: #E2AFA8;
+    --brand-pearl: #FDFBF9;
+    --brand-gold: #C58C7E;
+    --brand-dark: #3D3534;
+    --brand-champagne: #E9DCC9;
+}
+
+body {
+    background-color: var(--brand-pearl);
+    color: var(--brand-dark);
+    font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3,
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
