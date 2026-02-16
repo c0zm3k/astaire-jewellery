@@ -4,114 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track Your Order | Astaire Fine Jewellery</title>
+    <title>Order Concierge | Astaire Fine Jewellery</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #5d4d4a;
-        }
-
-        h1,
-        h2,
-        h3,
-        .serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .bg-peach-light {
-            background-color: #FFF5EE;
-        }
-
-        .text-peach-dark {
-            color: #d4a383;
-        }
-
-        .border-peach {
-            border-color: #FFDAB9;
-        }
-
-        .nav-link {
-            letter-spacing: 0.2em;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-
-        input {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #FFDAB9;
-            background: #FFF5EE;
-            font-size: 0.875rem;
-            outline: none;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        input:focus {
-            border-color: #d4a383;
-            background: white;
-        }
-    </style>
+    <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 
-<body class="bg-white text-stone-800 antialiased">
+<body class="bg-white">
+    <script type="module" src="./src/main.js"></script>
+
+    <!-- Navigation -->
     <nav
-        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-peach/20">
-        <div class="nav-link text-stone-400">London • Dubai</div>
-        <a href="index.html" class="text-3xl tracking-[0.5em] font-light text-peach-dark uppercase">ASTAIRE</a>
-        <div class="hidden md:flex space-x-8 items-center">
+        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="nav-link hidden md:block opacity-40">London • Dubai</div>
+        <a href="index.html"
+            class="text-2xl tracking-[0.8em] serif text-black hover:opacity-60 transition-opacity">ASTAIRE</a>
+
+        <div class="hamburger md:hidden" id="menuToggle">
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="hidden md:flex space-x-12 items-center">
             <a href="collection.html" class="nav-link">Collections</a>
-            <a href="catalogue.html" class="nav-link">Shop</a>
-            <a href="order-status.html" class="nav-link text-peach-dark">Track Order</a>
+            <a href="catalogue.html" class="nav-link">Boutique</a>
+            <a href="cart.html" class="nav-link">Bag <span id="cartCount"></span></a>
         </div>
     </nav>
 
-    <header class="pt-48 pb-12 bg-peach-light text-center px-6">
-        <span class="text-[10px] tracking-[0.6em] uppercase mb-6 block text-peach-dark font-bold">Client
-            Concierge</span>
-        <h1 class="text-5xl md:text-7xl font-light italic text-stone-800">Track Order</h1>
+    <header class="section-padding pt-48 pb-12 text-center bg-platinum reveal">
+        <span class="text-[9px] tracking-[0.8em] uppercase text-gray-400 mb-6 block font-bold">Curated Tracking</span>
+        <h1 class="text-7xl italic text-black">Track Order</h1>
     </header>
 
-    <main class="py-24 px-6 md:px-12 max-w-3xl mx-auto flex flex-col items-center">
-        <div class="w-full space-y-12">
-            <div class="bg-white border border-peach/20 p-10 rounded-sm shadow-sm text-center">
-                <p class="text-stone-500 font-light mb-8 italic">Enter your Order Reference Number to view its current
-                    status.</p>
-                <div class="flex gap-4">
-                    <input type="text" id="tracking-input" placeholder="e.g. AST-1234"
-                        class="serif text-xl tracking-widest">
+    <main class="container-wide section-padding pt-12">
+        <div class="max-w-2xl mx-auto space-y-24">
+            <div class="text-center reveal">
+                <p class="text-gray-400 font-light italic text-xl mb-12">
+                    Enter your Order Reference to view its current sanctuary stage.
+                </p>
+
+                <div
+                    class="flex items-end border-b border-gray-100 focus-within:border-black transition-all duration-1000 pb-4">
+                    <input type="text" id="tracking-input" placeholder="AST-0000"
+                        class="serif text-4xl tracking-[0.4em] uppercase text-center flex-1 bg-transparent border-none outline-none text-black">
                     <button onclick="checkStatus()"
-                        class="bg-stone-800 text-white px-10 py-4 uppercase text-[10px] tracking-[0.4em] hover:bg-peach-dark transition duration-500">Lookup</button>
+                        class="nav-link pb-4 border-l border-gray-100 pl-8 ml-4 font-bold">Lookup</button>
                 </div>
             </div>
 
-            <div id="status-result" class="hidden animate-in fade-in duration-700">
+            <div id="status-result" class="hidden reveal">
                 <!-- Result injected here -->
             </div>
         </div>
     </main>
 
-    <footer class="py-16 bg-peach-light text-center border-t border-peach/20">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-3xl tracking-[0.5em] font-light text-peach-dark mb-8 uppercase">ASTAIRE</div>
-            <div class="flex flex-wrap justify-center gap-8 mb-10">
-                <a href="index.html" class="nav-link text-[10px]">Home</a>
-                <a href="order-status.html" class="nav-link text-[10px]">Track Order</a>
-                <a href="#" class="nav-link text-[10px]">Concierge</a>
-            </div>
-            <div class="text-stone-400 text-[9px] tracking-[0.6em] uppercase">
-                © 2024 Astaire Fine Jewellery. Empowerment & Elegance.
-            </div>
+    <footer class="py-24 border-t border-gray-100 text-center">
+        <div class="container-wide text-[9px] tracking-[0.4em] uppercase text-gray-300">
+            © 2024 Astaire. Defined by Silence.
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
     <script>
         function checkStatus() {
             const id = document.getElementById('tracking-input').value.trim();
@@ -119,38 +71,38 @@
 
             if (!id) return;
 
-            const order = Cart.lookupOrder(id);
+            const order = window.Cart.lookupOrder(id);
 
             if (order) {
                 resultDiv.innerHTML = `
-                    <div class="bg-peach-light/50 border border-peach p-10 rounded-sm">
-                        <div class="flex justify-between items-start mb-10 border-b border-peach/30 pb-6">
+                    <div class="bg-platinum p-12 border border-gray-100">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 pb-8 border-b border-gray-100 gap-6">
                             <div>
-                                <h3 class="text-2xl serif italic">${order.id}</h3>
-                                <p class="text-[10px] text-stone-400 uppercase tracking-widest mt-1">Order Date: ${order.date}</p>
+                                <h3 class="text-5xl italic text-black uppercase tracking-widest">${order.id}</h3>
+                                <p class="text-[9px] text-gray-400 uppercase tracking-[0.4em] mt-3 font-bold">${order.date}</p>
                             </div>
-                            <span class="bg-peach-solid text-stone-800 px-4 py-1 text-[9px] uppercase tracking-widest font-bold">${order.status}</span>
+                            <span class="bg-black text-white px-8 py-3 text-[9px] uppercase tracking-widest font-bold">${order.status}</span>
                         </div>
                         
-                        <div class="space-y-6 mb-10">
+                        <div class="space-y-6 mb-16">
                            ${order.items.map(item => `
-                                <div class="flex justify-between text-xs tracking-widest uppercase text-stone-500">
-                                    <span>${item.name} x ${item.quantity}</span>
-                                    <span>$${(item.price * item.quantity).toLocaleString()}</span>
+                                <div class="flex justify-between items-center text-[10px] tracking-widest uppercase text-gray-400 pb-4">
+                                    <span class="italic text-lg normal-case text-black">${item.name} <span class="text-gray-300 ml-4 font-light text-xs">x ${item.quantity}</span></span>
+                                    <span class="text-black italic text-lg font-bold">$${(item.price * item.quantity).toLocaleString()}</span>
                                 </div>
                            `).join('')}
                         </div>
 
-                        <div class="flex justify-between border-t border-peach/30 pt-6">
-                            <span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Total Value</span>
-                            <span class="text-xl serif italic text-stone-800">$${order.total.toLocaleString()}</span>
+                        <div class="flex justify-between items-center pt-12 border-t border-gray-100">
+                            <span class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">Consolidation Total</span>
+                            <span class="text-4xl italic text-black font-bold">$${order.total.toLocaleString()}</span>
                         </div>
                     </div>
                 `;
             } else {
                 resultDiv.innerHTML = `
-                    <div class="bg-red-50/50 border border-red-100 p-8 rounded-sm text-center">
-                        <p class="text-[10px] text-red-400 uppercase tracking-widest">Order not found. Please verify the ID.</p>
+                    <div class="py-12 text-center">
+                        <p class="text-[10px] text-gray-300 uppercase tracking-widest">Verification failed.</p>
                     </div>
                 `;
             }

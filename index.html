@@ -4,192 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astaire Fine Jewellery | Timeless Luxury</title>
+    <title>Astaire Fine Jewellery | Quiet Luxury</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #5d4d4a;
-        }
-
-        h1,
-        h2,
-        h3,
-        .serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        /* Brand Colors */
-        .bg-peach-light {
-            background-color: #FFF5EE;
-        }
-
-        /* Very soft peach tint */
-        .bg-peach-solid {
-            background-color: #FFDAB9;
-        }
-
-        /* Richer peach accent */
-        .text-peach-dark {
-            color: #d4a383;
-        }
-
-        .border-peach {
-            border-color: #FFDAB9;
-        }
-
-        .nav-link {
-            letter-spacing: 0.2em;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-
-        .nav-link:hover {
-            color: #d4a383;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .reveal {
-            animation: fadeIn 1.5s ease forwards;
-        }
-    </style>
+    <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 
-<body class="bg-white text-stone-800 antialiased">
+<body class="bg-white">
+    <script type="module" src="./src/main.js"></script>
 
+    <!-- Navigation -->
     <nav
-        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-peach/20">
-        <div class="nav-link text-stone-400">London • Dubai</div>
-        <a href="index.html" class="text-3xl tracking-[0.5em] font-light text-peach-dark">ASTAIRE</a>
-        <div class="hidden md:flex space-x-8 items-center">
+        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="nav-link hidden md:block opacity-40">London • Dubai</div>
+        <a href="index.html"
+            class="text-2xl tracking-[0.8em] serif text-black hover:opacity-60 transition-opacity">ASTAIRE</a>
+
+        <!-- Hamburger Toggle -->
+        <div class="hamburger md:hidden" id="menuToggle">
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="hidden md:flex space-x-12 items-center">
             <a href="collection.html" class="nav-link">Collections</a>
-            <a href="catalogue.html" class="nav-link">Shop</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="order-status.html" class="nav-link">Track Order</a>
-            <a href="cart.html" class="relative group">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    class="text-stone-400 group-hover:text-peach-dark transition">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                    <path d="M3 6h18" />
-                    <path d="M16 10a4 4 0 0 1-8 0" />
-                </svg>
-                <span id="cartCount"
-                    class="absolute -top-2 -right-2 bg-peach-dark text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
-            </a>
+            <a href="catalogue.html" class="nav-link">Boutique</a>
+            <a href="about.html" class="nav-link">Story</a>
+            <a href="cart.html" class="nav-link">Bag <span id="cartCount"></span></a>
         </div>
     </nav>
 
-    <header class="relative h-screen flex items-center justify-center bg-peach-light overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=1920&q=80"
-            class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-40" alt="Fine Diamonds">
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileMenu">
+        <a href="collection.html" class="nav-link text-xl">Collections</a>
+        <a href="catalogue.html" class="nav-link text-xl">Boutique</a>
+        <a href="about.html" class="nav-link text-xl">Story</a>
+        <a href="cart.html" class="nav-link text-xl">Bag</a>
+    </div>
 
-        <div class="relative z-10 text-center px-6 reveal">
-            <span class="text-[10px] tracking-[0.6em] uppercase mb-6 block text-peach-dark font-bold">The Glow of
-                Excellence</span>
-            <h1 class="text-6xl md:text-8xl font-light italic mb-10 text-stone-800 leading-tight">Gilded <br> In Light.
-            </h1>
-            <a href="catalogue.html"
-                class="bg-white text-stone-800 border border-peach px-12 py-4 uppercase text-[10px] tracking-[0.4em] hover:bg-peach-solid transition duration-500 shadow-sm">View
-                Catalog</a>
+    <header class="h-screen flex items-center justify-center text-center px-6 relative overflow-hidden">
+        <div class="z-10 reveal">
+            <span class="text-[10px] tracking-[0.8em] uppercase text-gray-400 mb-8 block">Est. 1924</span>
+            <h1 class="text-7xl md:text-9xl tracking-tighter text-black mb-12 italic">Radiance In Repose</h1>
+            <a href="catalogue.html" class="btn-primary">Explore Boutique</a>
         </div>
     </header>
 
-    <section class="py-32 px-6 bg-white">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl mb-10 font-light italic">Refining the <span
-                    class="text-peach-dark">Personal</span> Glow.</h2>
-            <p class="text-stone-500 leading-loose font-light text-lg max-w-3xl mx-auto mb-16">
-                Our designs are born from the intersection of white diamonds and warm sunlight. Astaire pieces are
-                crafted to be worn as an extension of your own brilliance.
-            </p>
-            <div class="grid md:grid-cols-3 gap-8">
-                <img src="https://images.unsplash.com/photo-1616110820961-d70390196695?auto=format&fit=crop&w=500&q=80"
-                    class="rounded-t-full border border-peach/30 p-2 shadow-sm" alt="Ring Detail">
-                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=500&q=80"
-                    class="rounded-t-full border border-peach/30 p-2 shadow-sm translate-y-8" alt="Earring Detail">
-                <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=500&q=80"
-                    class="rounded-t-full border border-peach/30 p-2 shadow-sm" alt="Craftsmanship">
+    <main>
+        <section class="section-padding bg-platinum">
+            <div class="container-wide grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+                <div class="reveal">
+                    <h2 class="text-5xl md:text-7xl mb-12 italic">The Art of Quietude</h2>
+                    <p class="text-gray-500 font-light leading-relaxed max-w-md mb-12">
+                        Astaire pieces are not designed to shout. They are designed to whisper. A celebration of
+                        mastery,
+                        purity, and the timeless elegance of fine craftsmanship.
+                    </p>
+                    <a href="about.html" class="nav-link border-b border-black pb-1">Our Philosophy</a>
+                </div>
+                <div class="reveal" style="transition-delay: 0.2s;">
+                    <div class="aspect-[4/5] bg-white border border-gray-100 p-4">
+                        <img src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=1200&q=80"
+                            class="w-full h-full object-cover grayscale" alt="Jewellery Detail">
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="py-24 bg-peach-light">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center px-6">
-            <div class="relative">
-                <div class="absolute -top-4 -left-4 w-full h-full border border-peach-solid rounded-sm"></div>
-                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80"
-                    alt="Jewellery Set" class="relative z-10 shadow-xl">
+        <section class="section-padding">
+            <div class="container-wide">
+                <div class="flex justify-between items-end mb-24 reveal">
+                    <h2 class="text-5xl italic">Curated Selection</h2>
+                    <a href="catalogue.html" class="nav-link">View All Pieces →</a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <!-- Preview 1 -->
+                    <div class="reveal group">
+                        <div
+                            class="aspect-[3/4] bg-platinum mb-8 transition-transform duration-700 group-hover:scale-[0.98]">
+                            <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=800&q=80"
+                                class="w-full h-full object-cover mix-blend-multiply opacity-80" alt="Piece">
+                        </div>
+                        <h3 class="text-2xl mb-2">Heritage Ring</h3>
+                        <p class="text-[10px] tracking-widest uppercase text-gray-400">$8,400</p>
+                    </div>
+                </div>
             </div>
-            <div class="pl-0 md:pl-10">
-                <h2 class="text-4xl serif italic mb-6">Bespoke Peach Radiance</h2>
-                <p class="text-stone-500 font-light mb-8 italic">"Jewellery is the exclamation point of a woman’s
-                    outfit."</p>
-                <ul class="space-y-4 text-xs tracking-widest uppercase text-peach-dark font-bold">
-                    <li>✦ Hand-Picked Rare Stones</li>
-                    <li>✦ 18k Rose & Yellow Gold</li>
-                    <li>✦ Private Concierge Service</li>
-                </ul>
-                <button onclick="window.location.href='about.html'"
-                    class="mt-10 bg-white px-8 py-3 border border-peach rounded-full text-[10px] tracking-widest hover:bg-peach-solid transition">Enquire
-                    Now</button>
+        </section>
+    </main>
+
+    <footer class="py-24 border-t border-gray-100 text-center">
+        <div class="container-wide">
+            <div class="serif text-4xl tracking-[0.6em] mb-12">ASTAIRE</div>
+            <div class="flex justify-center gap-12 mb-16 text-[9px] tracking-widest uppercase opacity-60">
+                <a href="catalogue.html" class="hover:opacity-100 transition-opacity">Shop</a>
+                <a href="about.html" class="hover:opacity-100 transition-opacity">Story</a>
+                <a href="order-status.html" class="hover:opacity-100 transition-opacity">Tracking</a>
             </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-white text-center">
-        <h2 class="text-3xl serif italic mb-4">Follow Astaire</h2>
-        <p class="text-stone-400 text-[10px] tracking-[0.5em] uppercase mb-12">Capture the moment on Instagram</p>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 px-2">
-            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=400&q=80"
-                class="aspect-square object-cover" alt="Insta 1">
-            <img src="https://images.unsplash.com/photo-1610301138402-19800649767a?auto=format&fit=crop&w=400&q=80"
-                class="aspect-square object-cover" alt="Insta 2">
-            <img src="https://images.unsplash.com/photo-1531995811006-35cb42e1a021?auto=format&fit=crop&w=400&q=80"
-                class="aspect-square object-cover" alt="Insta 3">
-            <img src="https://images.unsplash.com/photo-1630160844343-22f1f4179373?auto=format&fit=crop&w=400&q=80"
-                class="aspect-square object-cover" alt="Insta 4">
-        </div>
-
-        <a href="https://www.instagram.com/astaire_fine_jewellery/" target="_blank"
-            class="inline-block mt-12 text-peach-dark tracking-[0.3em] text-[10px] font-bold border-b border-peach">@_ASTAIRE_FINE_JEWELLERY_</a>
-    </section>
-
-    <footer class="py-16 bg-peach-light text-center border-t border-peach/20">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-3xl tracking-[0.5em] font-light text-peach-dark mb-8">ASTAIRE</div>
-            <div class="flex flex-wrap justify-center gap-8 mb-10">
-                <a href="index.html" class="nav-link text-[10px]">Home</a>
-                <a href="collection.html" class="nav-link text-[10px]">Collections</a>
-                <a href="catalogue.html" class="nav-link text-[10px]">Shop</a>
-                <a href="about.html" class="nav-link text-[10px]">About</a>
-                <a href="order-status.html" class="nav-link text-[10px]">Track Order</a>
-                <a href="#" class="nav-link text-[10px]">Contact</a>
-            </div>
-            <div class="text-stone-400 text-[9px] tracking-[0.6em] uppercase">
-                © 2024 Astaire Fine Jewellery. Empowerment & Elegance.
-            </div>
+            <p class="text-[9px] tracking-[0.4em] uppercase text-gray-300">© 2024 Astaire. Defined by Silence.</p>
         </div>
     </footer>
-
-    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

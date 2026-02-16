@@ -4,480 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Collection | Astaire Fine Jewellery</title>
+    <title>Boutique | Astaire Fine Jewellery</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #5d4d4a;
-        }
-
-        h1,
-        h2,
-        h3,
-        .serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .bg-peach-light {
-            background-color: #FFF5EE;
-        }
-
-        .bg-peach-solid {
-            background-color: #FFDAB9;
-        }
-
-        .text-peach-dark {
-            color: #d4a383;
-        }
-
-        .border-peach {
-            border-color: #FFDAB9;
-        }
-
-        .nav-link {
-            letter-spacing: 0.2em;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-
-        .nav-link:hover {
-            color: #d4a383;
-        }
-
-        .product-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .product-image {
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
-        }
-    </style>
+    <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 
-<body class="bg-white text-stone-800 antialiased">
+<body class="bg-white">
+    <script type="module" src="./src/main.js"></script>
 
+    <!-- Navigation -->
     <nav
-        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-peach/20">
-        <div class="nav-link text-stone-400">London • Dubai</div>
-        <a href="index.html" class="text-3xl tracking-[0.5em] font-light text-peach-dark">ASTAIRE</a>
-        <div class="hidden md:flex space-x-8 items-center">
+        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="nav-link hidden md:block opacity-40">London • Dubai</div>
+        <a href="index.html"
+            class="text-2xl tracking-[0.8em] serif text-black hover:opacity-60 transition-opacity">ASTAIRE</a>
+
+        <div class="hamburger md:hidden" id="menuToggle">
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="hidden md:flex space-x-12 items-center">
             <a href="collection.html" class="nav-link">Collections</a>
-            <a href="catalogue.html" class="nav-link text-peach-dark">Shop</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="order-status.html" class="nav-link">Track Order</a>
-            <a href="cart.html" class="relative group">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    class="text-stone-400 group-hover:text-peach-dark transition">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                    <path d="M3 6h18" />
-                    <path d="M16 10a4 4 0 0 1-8 0" />
-                </svg>
-                <span id="cartCount"
-                    class="absolute -top-2 -right-2 bg-peach-dark text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
-            </a>
+            <a href="catalogue.html" class="nav-link opacity-100 font-bold border-b border-black pb-1">Boutique</a>
+            <a href="about.html" class="nav-link">Story</a>
+            <a href="cart.html" class="nav-link">Bag <span id="cartCount"></span></a>
         </div>
     </nav>
 
-    <header class="pt-48 pb-12 bg-peach-light text-center px-6">
-        <span class="text-[10px] tracking-[0.6em] uppercase mb-6 block text-peach-dark font-bold">The Boutique</span>
-        <h1 class="text-5xl md:text-7xl font-light italic text-stone-800">The Collection</h1>
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileMenu">
+        <a href="collection.html" class="nav-link text-xl">Collections</a>
+        <a href="catalogue.html" class="nav-link text-xl font-bold">Boutique</a>
+        <a href="about.html" class="nav-link text-xl">Story</a>
+        <a href="cart.html" class="nav-link text-xl">Bag</a>
+    </div>
+
+    <header class="section-padding pt-48 pb-12 text-center bg-platinum reveal">
+        <span class="text-[9px] tracking-[0.8em] uppercase text-gray-400 mb-6 block">Haute Joaillerie</span>
+        <h1 class="text-7xl italic text-black">The Boutique</h1>
     </header>
 
-    <div class="bg-white sticky top-[88px] z-40 border-b border-peach/10 py-6 px-10">
-        <div class="max-w-7xl mx-auto flex justify-center space-x-6 md:space-x-12">
-            <button onclick="filterProducts('all')"
-                class="filter-btn text-[10px] uppercase tracking-[0.3em] transition-all hover:text-peach-dark font-bold text-peach-dark"
-                data-category="all">All Pieces</button>
-            <button onclick="filterProducts('necklaces')"
-                class="filter-btn text-[10px] uppercase tracking-[0.3em] transition-all text-stone-400 hover:text-peach-dark"
+    <div class="container-wide px-12 py-12 reveal">
+        <div class="flex flex-wrap justify-center gap-12 md:gap-24">
+            <button onclick="filterProducts('all')" class="filter-btn nav-link active border-b border-black pb-1"
+                data-category="all">All</button>
+            <button onclick="filterProducts('necklaces')" class="filter-btn nav-link"
                 data-category="necklaces">Necklaces</button>
-            <button onclick="filterProducts('rings')"
-                class="filter-btn text-[10px] uppercase tracking-[0.3em] transition-all text-stone-400 hover:text-peach-dark"
-                data-category="rings">Rings</button>
-            <button onclick="filterProducts('earrings')"
-                class="filter-btn text-[10px] uppercase tracking-[0.3em] transition-all text-stone-400 hover:text-peach-dark"
+            <button onclick="filterProducts('rings')" class="filter-btn nav-link" data-category="rings">Rings</button>
+            <button onclick="filterProducts('earrings')" class="filter-btn nav-link"
                 data-category="earrings">Earrings</button>
-            <button onclick="filterProducts('bracelets')"
-                class="filter-btn text-[10px] uppercase tracking-[0.3em] transition-all text-stone-400 hover:text-peach-dark"
-                data-category="bracelets">Bracelets</button>
         </div>
     </div>
 
-    <main class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-
-            <!-- 1. Necklace (Featured) -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="necklaces">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800"
-                        alt="Eternal Rose Necklace" class="w-full h-[400px] object-cover product-image">
+    <main class="container-wide section-padding">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-24">
+            <!-- Product Card -->
+            <div class="product-card reveal group" data-category="necklaces">
+                <a href="product-details.html" class="block">
                     <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                        class="aspect-[4/5] bg-platinum border border-gray-100 overflow-hidden mb-8 transition-transform duration-700 group-hover:scale-[0.98]">
+                        <img src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=800&q=80"
+                            alt="Piece"
+                            class="w-full h-full object-cover mix-blend-multiply transition-opacity group-hover:opacity-100">
                     </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
-                    <h3 class="text-xl serif italic mb-3">Eternal Rose Necklace</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$1,250</p>
-                </div>
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <h3 class="text-3xl italic text-black">Aurelia</h3>
+                            <p class="text-[9px] uppercase tracking-widest text-gray-400">Signature Necklace</p>
+                        </div>
+                        <span class="text-xl italic text-gray-900">$12,400</span>
+                    </div>
+                </a>
             </div>
 
-            <!-- 2. Ring -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="rings">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1626011709490-67fd07fce7de?auto=format&fit=crop&q=80&w=800"
-                        alt="Aurelia Gold Ring" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Rings</p>
-                    <h3 class="text-xl serif italic mb-3">Aurelia Gold Ring</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$1,450</p>
-                </div>
-            </div>
-
-            <!-- 3. Earrings -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="earrings">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1535633302703-b0703af03f4d?auto=format&fit=crop&q=80&w=800"
-                        alt="Orion Drop Earrings" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Earrings</p>
-                    <h3 class="text-xl serif italic mb-3">Orion Drop Earrings</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$850</p>
-                </div>
-            </div>
-
-            <!-- 4. Bangles -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="bracelets">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800"
-                        alt="Nova Gold Bangle" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Bracelets</p>
-                    <h3 class="text-xl serif italic mb-3">Nova Gold Bangle</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$2,100</p>
-                </div>
-            </div>
-
-            <!-- 5. Chains -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="necklaces">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1573408302185-912704439171?auto=format&fit=crop&q=80&w=800"
-                        alt="Venetian Link Chain" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
-                    <h3 class="text-xl serif italic mb-3">Venetian Link Chain</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$950</p>
-                </div>
-            </div>
-
-            <!-- 6. Bracelets -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="bracelets">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&q=80&w=800"
-                        alt="Luna Pearl Bracelet" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Bracelets</p>
-                    <h3 class="text-xl serif italic mb-3">Luna Pearl Bracelet</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$1,800</p>
-                </div>
-            </div>
-
-            <!-- 7. Earrings -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="earrings">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1598560917505-59a3ad5cb906?auto=format&fit=crop&q=80&w=800"
-                        alt="Sapphire Bloom Studs" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Earrings</p>
-                    <h3 class="text-xl serif italic mb-3">Sapphire Bloom Studs</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$1,500</p>
-                </div>
-            </div>
-
-            <!-- 8. Rings -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="rings">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1611085516891-724391e3e7f4?auto=format&fit=crop&q=80&w=800"
-                        alt="Dusk Emerald Ring" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Rings</p>
-                    <h3 class="text-xl serif italic mb-3">Dusk Emerald Ring</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$4,200</p>
-                </div>
-            </div>
-
-            <!-- 9. Necklaces -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="necklaces">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1596944229611-372138a05c74?auto=format&fit=crop&q=80&w=800"
-                        alt="Celestial Heart Pendant" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
-                    <h3 class="text-xl serif italic mb-3">Celestial Heart Pendant</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$1,100</p>
-                </div>
-            </div>
-
-            <!-- 10. Bangles -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="bracelets">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1599459182885-3e2f5825700a?auto=format&fit=crop&q=80&w=800"
-                        alt="Imperial Diamond Bangle" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Bracelets</p>
-                    <h3 class="text-xl serif italic mb-3">Imperial Diamond Bangle</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$5,500</p>
-                </div>
-            </div>
-
-            <!-- 11. Earrings -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="earrings">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1579781403261-793589799480?auto=format&fit=crop&q=80&w=800"
-                        alt="Rose Petal Studs" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Earrings</p>
-                    <h3 class="text-xl serif italic mb-3">Rose Petal Studs</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$600</p>
-                </div>
-            </div>
-
-            <!-- 12. Chains -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="necklaces">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?auto=format&fit=crop&q=80&w=800"
-                        alt="Gilded Rope Chain" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
-                    <h3 class="text-xl serif italic mb-3">Gilded Rope Chain</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$1,350</p>
-                </div>
-            </div>
-
-            <!-- 13. Rings -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="rings">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=800"
-                        alt="Ocean Azure Ring" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Rings</p>
-                    <h3 class="text-xl serif italic mb-3">Ocean Azure Ring</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$2,800</p>
-                </div>
-            </div>
-
-            <!-- 14. Necklaces -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="necklaces">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1588102324903-887474eb441f?auto=format&fit=crop&q=80&w=800"
-                        alt="Aura Gold Lariat" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
-                    <h3 class="text-xl serif italic mb-3">Aura Gold Lariat</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$1,650</p>
-                </div>
-            </div>
-
-            <!-- 15. Bangles -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="bracelets">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&q=80&w=800"
-                        alt="Venice Cuff Bangle" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Bracelets</p>
-                    <h3 class="text-xl serif italic mb-3">Venice Cuff Bangle</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$2,400</p>
-                </div>
-            </div>
-
-            <!-- 16. Earrings -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="earrings">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?auto=format&fit=crop&q=80&w=800"
-                        alt="Cascade Diamond Hoops" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Earrings</p>
-                    <h3 class="text-xl serif italic mb-3">Cascade Diamond Hoops</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$3,200</p>
-                </div>
-            </div>
-
-            <!-- 17. Rings -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="rings">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1626011709490-67fd07fce7de?auto=format&fit=crop&q=80&w=800"
-                        alt="Tuscany Ruby Ring" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Rings</p>
-                    <h3 class="text-xl serif italic mb-3">Tuscany Ruby Ring</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$4,800</p>
-                </div>
-            </div>
-
-            <!-- 18. Chains -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="necklaces">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1635747372079-2479e08876ae?auto=format&fit=crop&q=80&w=800"
-                        alt="Platinum Flat Snake Chain" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
-                    <h3 class="text-xl serif italic mb-3">Platinum Flat Snake Chain</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$1,950</p>
-                </div>
-            </div>
-
-            <!-- 19. Earrings -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="earrings">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1596944229611-372138a05c74?auto=format&fit=crop&q=80&w=800"
-                        alt="Verona Chandelier Earrings" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Earrings</p>
-                    <h3 class="text-xl serif italic mb-3">Verona Chandelier Earrings</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$5,100</p>
-                </div>
-            </div>
-
-            <!-- 20. Bangles -->
-            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
-                data-category="bracelets">
-                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
-                    <img src="https://images.unsplash.com/photo-1596944229611-372138a05c74?auto=format&fit=crop&q=80&w=800"
-                        alt="Golden Orbit Bangle" class="w-full h-[400px] object-cover product-image">
-                    <div
-                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Bracelets</p>
-                    <h3 class="text-xl serif italic mb-3">Golden Orbit Bangle</h3>
-                    <p class="text-sm font-light tracking-widest text-stone-500">$2,750</p>
-                </div>
-            </div>
-
+            <!-- More pieces... -->
         </div>
     </main>
 
-    <footer class="py-16 bg-peach-light text-center border-t border-peach/20">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-3xl tracking-[0.5em] font-light text-peach-dark mb-8">ASTAIRE</div>
-            <div class="flex flex-wrap justify-center gap-8 mb-10">
-                <a href="index.html" class="nav-link text-[10px]">Home</a>
-                <a href="collection.html" class="nav-link text-[10px]">Collections</a>
-                <a href="catalogue.html" class="nav-link text-[10px]">Shop</a>
-                <a href="about.html" class="nav-link text-[10px]">About</a>
-                <a href="order-status.html" class="nav-link text-[10px]">Track Order</a>
-                <a href="#" class="nav-link text-[10px]">Contact</a>
+    <footer class="py-24 border-t border-gray-100 text-center">
+        <div class="container-wide">
+            <div class="serif text-4xl tracking-[0.6em] mb-12 text-black">ASTAIRE</div>
+            <div class="flex justify-center gap-12 mb-16 text-[9px] tracking-widest uppercase opacity-60">
+                <a href="catalogue.html" class="hover:opacity-100 transition-opacity">Shop</a>
+                <a href="about.html" class="hover:opacity-100 transition-opacity">Story</a>
+                <a href="order-status.html" class="hover:opacity-100 transition-opacity">Tracking</a>
             </div>
-            <div class="text-stone-400 text-[9px] tracking-[0.6em] uppercase">
-                © 2024 Astaire Fine Jewellery. Empowerment & Elegance.
-            </div>
+            <p class="text-[9px] tracking-[0.4em] uppercase text-gray-300">© 2024 Astaire. Defined by Silence.</p>
         </div>
     </footer>
-
-    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

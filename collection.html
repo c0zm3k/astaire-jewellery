@@ -4,179 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curated Collections | Astaire Fine Jewellery</title>
+    <title>Collections | Astaire Fine Jewellery</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #5d4d4a;
-        }
-
-        h1,
-        h2,
-        h3,
-        .serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .bg-peach-light {
-            background-color: #FFF5EE;
-        }
-
-        .bg-peach-solid {
-            background-color: #FFDAB9;
-        }
-
-        .text-peach-dark {
-            color: #d4a383;
-        }
-
-        .border-peach {
-            border-color: #FFDAB9;
-        }
-
-        .nav-link {
-            letter-spacing: 0.2em;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-
-        .nav-link:hover {
-            color: #d4a383;
-        }
-
-        .collection-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .collection-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .collection-item {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 4/5;
-            cursor: pointer;
-        }
-
-        .collection-item img {
-            transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .collection-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(61, 53, 52, 0.8), transparent);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 2.5rem;
-            color: white;
-            transition: background 0.5s;
-        }
-
-        .collection-item:hover .overlay {
-            background: linear-gradient(to top, rgba(212, 163, 131, 0.8), transparent);
-        }
-    </style>
+    <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 
-<body class="bg-white text-stone-800 antialiased">
+<body class="bg-white">
+    <script type="module" src="./src/main.js"></script>
 
+    <!-- Navigation -->
     <nav
-        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-peach/20">
-        <div class="nav-link text-stone-400">London • Dubai</div>
-        <a href="index.html" class="text-3xl tracking-[0.5em] font-light text-peach-dark">ASTAIRE</a>
-        <div class="hidden md:flex space-x-8 items-center">
-            <a href="collection.html" class="nav-link text-peach-dark">Collections</a>
-            <a href="catalogue.html" class="nav-link">Shop</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="order-status.html" class="nav-link">Track Order</a>
-            <a href="cart.html" class="relative group">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    class="text-stone-400 group-hover:text-peach-dark transition">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                    <path d="M3 6h18" />
-                    <path d="M16 10a4 4 0 0 1-8 0" />
-                </svg>
-                <span id="cartCount"
-                    class="absolute -top-2 -right-2 bg-peach-dark text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
-            </a>
+        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="nav-link hidden md:block opacity-40">London • Dubai</div>
+        <a href="index.html"
+            class="text-2xl tracking-[0.8em] serif text-black hover:opacity-60 transition-opacity">ASTAIRE</a>
+
+        <div class="hamburger md:hidden" id="menuToggle">
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="hidden md:flex space-x-12 items-center">
+            <a href="collection.html" class="nav-link opacity-100 font-bold border-b border-black pb-1">Collections</a>
+            <a href="catalogue.html" class="nav-link">Boutique</a>
+            <a href="about.html" class="nav-link">Story</a>
+            <a href="cart.html" class="nav-link">Bag <span id="cartCount"></span></a>
         </div>
     </nav>
 
-    <header class="pt-48 pb-24 bg-peach-light text-center px-6">
-        <span class="text-[10px] tracking-[0.6em] uppercase mb-6 block text-peach-dark font-bold">The Curation</span>
-        <h1 class="text-5xl md:text-7xl font-light italic text-stone-800">Our Collections</h1>
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileMenu">
+        <a href="collection.html" class="nav-link text-xl font-bold">Collections</a>
+        <a href="catalogue.html" class="nav-link text-xl">Boutique</a>
+        <a href="about.html" class="nav-link text-xl">Story</a>
+        <a href="cart.html" class="nav-link text-xl">Bag</a>
+    </div>
+
+    <header class="section-padding pt-48 pb-12 text-center bg-platinum reveal">
+        <span class="text-[9px] tracking-[0.8em] uppercase text-gray-400 mb-6 block">Curated Series</span>
+        <h1 class="text-7xl italic text-black">The Collections</h1>
     </header>
 
-    <main class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="collection-grid">
-            <!-- Collection 1 -->
-            <div class="collection-item group" onclick="window.location.href='catalogue.html'">
-                <img src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&q=80&w=1200"
-                    class="w-full h-full object-cover" alt="The Bridal Suite">
-                <div class="overlay">
-                    <span class="text-[9px] tracking-[0.5em] uppercase mb-2">Iconic</span>
-                    <h2 class="text-3xl serif italic mb-4">The Bridal Suite</h2>
-                    <p class="text-xs font-light tracking-widest opacity-80 group-hover:opacity-100 transition">
-                        Exquisite diamonds for your most cherished moments.</p>
+    <main class="container-wide section-padding">
+        <div class="space-y-48">
+            <!-- Collection Item -->
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center reveal">
+                <div class="lg:col-span-7 bg-platinum border border-gray-100 p-4">
+                    <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1200&q=80"
+                        alt="Collection" class="w-full h-full object-cover mix-blend-multiply transition-opacity">
                 </div>
-            </div>
-
-            <!-- Collection 2 -->
-            <div class="collection-item group" onclick="window.location.href='catalogue.html'">
-                <img src="https://images.unsplash.com/photo-1616110820961-d70390196695?auto=format&fit=crop&q=80&w=1200"
-                    class="w-full h-full object-cover" alt="Solstice Sunsets">
-                <div class="overlay">
-                    <span class="text-[9px] tracking-[0.5em] uppercase mb-2">Seasonal</span>
-                    <h2 class="text-3xl serif italic mb-4">Solstice Sunsets</h2>
-                    <p class="text-xs font-light tracking-widest opacity-80 group-hover:opacity-100 transition">Warm
-                        peach tones and 18k gold inspired by twilight.</p>
+                <div class="lg:col-span-5 lg:pl-16 space-y-12">
+                    <span class="text-[9px] tracking-[0.6em] uppercase text-gray-400">Archival Series</span>
+                    <h2 class="text-6xl md:text-8xl italic text-black">Heritage</h2>
+                    <p class="text-gray-500 font-light leading-relaxed">
+                        A dialogue between past and present. Our Heritage Collection explores the architectural lines of
+                        1920s Paris, reimagined for the modern visionary.
+                    </p>
+                    <a href="catalogue.html" class="btn-primary">Explore Pieces</a>
                 </div>
-            </div>
-
-            <!-- Collection 3 -->
-            <div class="collection-item group" onclick="window.location.href='catalogue.html'">
-                <img src="https://images.unsplash.com/photo-1573408302185-912704439171?auto=format&fit=crop&q=80&w=1200"
-                    class="w-full h-full object-cover" alt="Heritage 1994">
-                <div class="overlay">
-                    <span class="text-[9px] tracking-[0.5em] uppercase mb-2">Limited</span>
-                    <h2 class="text-3xl serif italic mb-4">Heritage 1994</h2>
-                    <p class="text-xs font-light tracking-widest opacity-80 group-hover:opacity-100 transition">Reviving
-                        the classic designs from our founding year.</p>
-                </div>
-            </div>
-
-            <!-- Collection 4 -->
-            <div class="collection-item group" onclick="window.location.href='catalogue.html'">
-                <img src="https://images.unsplash.com/photo-1611085516891-724391e3e7f4?auto=format&fit=crop&q=80&w=1200"
-                    class="w-full h-full object-cover" alt="Minimalist Glow">
-                <div class="overlay">
-                    <span class="text-[9px] tracking-[0.5em] uppercase mb-2">Modern</span>
-                    <h2 class="text-3xl serif italic mb-4">Minimalist Glow</h2>
-                    <p class="text-xs font-light tracking-widest opacity-80 group-hover:opacity-100 transition">Simple,
-                        elegant pieces for everyday brilliance.</p>
-                </div>
-            </div>
+            </section>
         </div>
     </main>
 
+    <footer class="py-24 border-t border-gray-100 text-center">
+        <div class="container-wide text-[9px] tracking-[0.4em] uppercase text-gray-300">
+            © 2024 Astaire. Defined by Silence.
+        </div>
+    </footer>
 </body>
 
 </html>

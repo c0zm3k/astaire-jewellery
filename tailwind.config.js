@@ -1,5 +1,17 @@
 // tailwind.config.js
 module.exports = {
+  content: [
+    "./index.html",
+    "./about.html",
+    "./cart.html",
+    "./catalogue.html",
+    "./checkout.html",
+    "./collection.html",
+    "./order-confirmation.html",
+    "./order-status.html",
+    "./product-details.html",
+    "./src/**/*.{js,ts,jsx,tsx,css}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -9,8 +21,8 @@ module.exports = {
         'brand-dark': '#3D3534',
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'serif'],
-        sans: ['"Montserrat"', 'sans-serif'],
+        serif: ['Italiana', 'serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -23,5 +35,6 @@ module.exports = {
         }
       }
     }
-  }
+  },
+  plugins: [],
 }

@@ -4,147 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Astaire Legacy | Fine Jewellery</title>
+    <title>Story | Astaire Fine Jewellery</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #5d4d4a;
-        }
-
-        h1,
-        h2,
-        h3,
-        .serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .bg-peach-light {
-            background-color: #FFF5EE;
-        }
-
-        .bg-peach-solid {
-            background-color: #FFDAB9;
-        }
-
-        .text-peach-dark {
-            color: #d4a383;
-        }
-
-        .border-peach {
-            border-color: #FFDAB9;
-        }
-
-        .nav-link {
-            letter-spacing: 0.2em;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-
-        .nav-link:hover {
-            color: #d4a383;
-        }
-    </style>
+    <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 
-<body class="bg-white text-stone-800 antialiased">
+<body class="bg-white">
+    <script type="module" src="./src/main.js"></script>
 
+    <!-- Navigation -->
     <nav
-        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-peach/20">
-        <div class="nav-link text-stone-400">London • Dubai</div>
-        <a href="index.html" class="text-3xl tracking-[0.5em] font-light text-peach-dark">ASTAIRE</a>
-        <div class="hidden md:flex space-x-8 items-center">
+        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="nav-link hidden md:block opacity-40">London • Dubai</div>
+        <a href="index.html"
+            class="text-2xl tracking-[0.8em] serif text-black hover:opacity-60 transition-opacity">ASTAIRE</a>
+
+        <div class="hamburger md:hidden" id="menuToggle">
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="hidden md:flex space-x-12 items-center">
             <a href="collection.html" class="nav-link">Collections</a>
-            <a href="catalogue.html" class="nav-link">Shop</a>
-            <a href="about.html" class="nav-link text-peach-dark">About</a>
-            <a href="order-status.html" class="nav-link">Track Order</a>
-            <a href="cart.html" class="relative group">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    class="text-stone-400 group-hover:text-peach-dark transition">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                    <path d="M3 6h18" />
-                    <path d="M16 10a4 4 0 0 1-8 0" />
-                </svg>
-                <span id="cartCount"
-                    class="absolute -top-2 -right-2 bg-peach-dark text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
-            </a>
+            <a href="catalogue.html" class="nav-link">Boutique</a>
+            <a href="about.html" class="nav-link opacity-100 font-bold border-b border-black pb-1">Story</a>
+            <a href="cart.html" class="nav-link">Bag <span id="cartCount"></span></a>
         </div>
     </nav>
 
-    <header class="pt-48 pb-24 bg-peach-light text-center px-6">
-        <span class="text-[10px] tracking-[0.6em] uppercase mb-6 block text-peach-dark font-bold">Our Heritage</span>
-        <h1 class="text-5xl md:text-7xl font-light italic text-stone-800">The Astaire Legacy</h1>
+    <header class="section-padding pt-48 pb-12 text-center bg-platinum reveal">
+        <span class="text-[9px] tracking-[0.8em] uppercase text-gray-400 mb-6 block">Establishing Purity</span>
+        <h1 class="text-7xl italic text-black">The Story</h1>
     </header>
 
-    <main class="py-24 px-6 md:px-12 max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center mb-32">
-            <div class="relative">
-                <div class="absolute -top-4 -left-4 w-full h-full border border-peach-solid rounded-sm"></div>
-                <img src="https://images.unsplash.com/photo-1573408302185-912704439171?auto=format&fit=crop&q=80&w=1200"
-                    class="relative z-10 shadow-xl rounded-sm" alt="Astaire Workshop">
-            </div>
-            <div class="space-y-8">
-                <h2 class="text-4xl serif italic">Three Decades of <span class="text-peach-dark">Excellence</span></h2>
-                <div class="text-stone-500 leading-loose font-light text-lg space-y-6">
-                    <p>
-                        Founded on the principles of timeless elegance and unparalleled craftsmanship, Astaire Fine
-                        Jewellery has been a beacon of luxury for over three decades. Our journey began with a single
-                        vision: to create pieces that don't just adorn, but tell a story of beauty, resilience, and
-                        confidence.
+    <main class="container-wide section-padding">
+        <div class="max-w-4xl mx-auto space-y-32">
+            <section class="reveal">
+                <h2 class="text-4xl italic mb-12">Crafted In Silence</h2>
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <p class="text-gray-500 leading-loose font-light">
+                        Founded in 1924, Astaire Fine Jewellery was born from a singular vision: to create pieces that
+                        don't compete with the wearer, but enhance their innate grace.
                     </p>
-                    <p>
-                        Every gemstone is hand-selected by our master gemologists, ensuring that only the most radiant
-                        and
-                        ethically sourced stones find their way into our creations. Our artisans then breathe life into
-                        these stones, using techniques passed down through generations combined with modern innovation.
-                    </p>
+                    <div class="bg-platinum border border-gray-100 p-2">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80"
+                            class="w-full grayscale" alt="Artisan">
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-16">
-            <div class="bg-peach-light p-12 rounded-sm border border-peach/20">
-                <h3 class="text-2xl serif italic mb-6">Our Craft</h3>
-                <p class="text-stone-500 font-light leading-relaxed">
-                    From the first sketch to the final polish, every detail is scrutinized. We
-                    believe that perfection is found in the things unseen. Our workshop in London and Dubai specializes
-                    in bespoke creations that last lifetimes.
-                </p>
-            </div>
-            <div class="bg-peach-light p-12 rounded-sm border border-peach/20">
-                <h3 class="text-2xl serif italic mb-6">Our Mission</h3>
-                <p class="text-stone-500 font-light leading-relaxed">
-                    To empower individuals through wearable art that transcends trends and
-                    celebrates the milestones of life. We believe in fine jewellery as an extension of one's inner
-                    brilliance.
-                </p>
-            </div>
+            </section>
         </div>
     </main>
 
-    <footer class="py-16 bg-peach-light text-center border-t border-peach/20">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-3xl tracking-[0.5em] font-light text-peach-dark mb-8">ASTAIRE</div>
-            <div class="flex flex-wrap justify-center gap-8 mb-10">
-                <a href="index.html" class="nav-link text-[10px]">Home</a>
-                <a href="collection.html" class="nav-link text-[10px]">Collections</a>
-                <a href="catalogue.html" class="nav-link text-[10px]">Shop</a>
-                <a href="about.html" class="nav-link text-[10px]">About</a>
-                <a href="order-status.html" class="nav-link text-[10px]">Track Order</a>
-                <a href="#" class="nav-link text-[10px]">Contact</a>
-            </div>
-            <div class="text-stone-400 text-[9px] tracking-[0.6em] uppercase">
-                © 2024 Astaire Fine Jewellery. Empowerment & Elegance.
-            </div>
+    <footer class="py-24 border-t border-gray-100 text-center">
+        <div class="container-wide text-[9px] tracking-[0.4em] uppercase text-gray-300">
+            © 2024 Astaire. Defined by Silence.
         </div>
     </footer>
-
 </body>
 
 </html>

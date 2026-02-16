@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --brand-white: #FFFFFF;
+    --brand-dark: #12100F;
+    --brand-stone: #5d4d4a;
+    --brand-platinum: #F9F9F9;
+    --brand-border: #E5E5E5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--brand-white);
+    color: var(--brand-dark);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.serif {
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+}
+
+.nav-link {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: var(--brand-dark);
+    text-decoration: none;
+    transition: all 0.4s ease;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    letter-spacing: 0.45em;
+}
+
+/* Luxury Box Buttons */
+.btn-primary {
+    background: var(--brand-dark);
+    color: var(--brand-white);
+    padding: 1.2rem 3rem;
+    border: none;
+    cursor: pointer;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background: var(--brand-white);
+    color: var(--brand-dark);
+    box-shadow: inset 0 0 0 1px var(--brand-dark);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--brand-dark);
+    padding: 1.2rem 3rem;
+    border: 1px solid var(--brand-dark);
+    cursor: pointer;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-outline:hover {
+    background: var(--brand-dark);
+    color: var(--brand-white);
+}
+
+/* Boutique Inputs */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 1.2rem 0;
+    border: none;
+    border-bottom: 1px solid var(--brand-border);
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.5s ease;
+    border-radius: 0;
+}
+
+input:focus {
+    border-bottom: 1px solid var(--brand-dark);
+}
+
+/* Layout */
+.section-padding {
+    padding: 10rem 2rem;
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 6rem 1.5rem;
+    }
+}
+
+.container-wide {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Nav */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 7px;
+    z-index: 200;
+}
+
+.hamburger div {
+    width: 22px;
+    height: 1px;
+    background: var(--brand-dark);
+    transition: all 0.3s ease;
+}
+
+.mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--brand-white);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mobile-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Utilities for Minimalism */
+.bg-platinum {
+    background-color: var(--brand-platinum);
+}
+
+.border-dark {
+    border: 1px solid var(--brand-dark);
+}
+
+.border-soft {
+    border: 1px solid var(--brand-border);
+}

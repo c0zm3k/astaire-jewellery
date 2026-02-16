@@ -4,191 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | Astaire Fine Jewellery</title>
+    <title>Mailing Particulars | Astaire Fine Jewellery</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap"
-        rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #5d4d4a;
-        }
-
-        h1,
-        h2,
-        h3,
-        .serif {
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .bg-peach-light {
-            background-color: #FFF5EE;
-        }
-
-        .bg-peach-solid {
-            background-color: #FFDAB9;
-        }
-
-        .text-peach-dark {
-            color: #d4a383;
-        }
-
-        .border-peach {
-            border-color: #FFDAB9;
-        }
-
-        .nav-link {
-            letter-spacing: 0.2em;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            transition: all 0.3s;
-        }
-
-        .nav-link:hover {
-            color: #d4a383;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #FFDAB9;
-            background: #FFF5EE;
-            font-size: 0.875rem;
-            outline: none;
-            transition: all 0.3s;
-        }
-
-        input:focus {
-            border-color: #d4a383;
-            background: white;
-        }
-    </style>
+    <link rel="stylesheet" href="./src/styles/main.css">
 </head>
 
-<body class="bg-white text-stone-800 antialiased">
+<body class="bg-white">
+    <script type="module" src="./src/main.js"></script>
 
+    <!-- Navigation -->
     <nav
-        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-peach/20">
-        <div class="nav-link text-stone-400">London • Dubai</div>
-        <a href="index.html" class="text-3xl tracking-[0.5em] font-light text-peach-dark">ASTAIRE</a>
-        <div class="hidden md:flex space-x-8 items-center">
+        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
+        <div class="nav-link hidden md:block opacity-40">London • Dubai</div>
+        <a href="index.html"
+            class="text-2xl tracking-[0.8em] serif text-black hover:opacity-60 transition-opacity">ASTAIRE</a>
+
+        <div class="hamburger md:hidden" id="menuToggle">
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="hidden md:flex space-x-12 items-center">
             <a href="collection.html" class="nav-link">Collections</a>
-            <a href="catalogue.html" class="nav-link">Shop</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="cart.html" class="relative group">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    class="text-stone-400 group-hover:text-peach-dark transition">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                    <path d="M3 6h18" />
-                    <path d="M16 10a4 4 0 0 1-8 0" />
-                </svg>
-                <span id="cartCount"
-                    class="absolute -top-2 -right-2 bg-peach-dark text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
-            </a>
+            <a href="catalogue.html" class="nav-link">Boutique</a>
+            <a href="cart.html" class="nav-link">Bag <span id="cartCount"></span></a>
         </div>
     </nav>
 
-    <main class="pt-48 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-20">
-            <!-- Checkout Form -->
-            <div class="space-y-16">
+    <header class="section-padding pt-48 pb-12 text-center bg-platinum reveal">
+        <span class="text-[9px] tracking-[0.8em] uppercase text-gray-400 mb-6 block font-bold">Checkout
+            particulares</span>
+        <h1 class="text-7xl italic text-black">Particulars</h1>
+    </header>
+
+    <main class="container-wide section-padding pt-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
+            <div class="lg:col-span-7 space-y-16 reveal">
                 <section>
-                    <h2 class="text-3xl serif italic mb-10">Shipping Details</h2>
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-2 gap-6">
-                            <input type="text" placeholder="First Name" required>
-                            <input type="text" placeholder="Last Name" required>
-                        </div>
-                        <input type="email" placeholder="Email Address" required>
-                        <input type="text" placeholder="Address" required>
-                        <div class="grid grid-cols-3 gap-6">
-                            <input type="text" placeholder="City" class="col-span-1">
-                            <input type="text" placeholder="Postal Code" class="col-span-1">
-                            <select class="col-span-1">
-                                <option>United Kingdom</option>
-                                <option>United Arab Emirates</option>
-                                <option>United States</option>
-                            </select>
-                        </div>
-                    </form>
+                    <h2 class="text-3xl italic mb-10 pb-4 border-b border-gray-100">Client Information</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+                        <input type="text" placeholder="Full Name">
+                        <input type="email" placeholder="Email Address">
+                    </div>
                 </section>
 
                 <section>
-                    <h2 class="text-3xl serif italic mb-10">Payment</h2>
+                    <h2 class="text-3xl italic mb-10 pb-4 border-b border-gray-100">Mailing Address</h2>
                     <div class="space-y-6">
-                        <input type="text" placeholder="Cardholder Name" required>
-                        <input type="text" placeholder="Card Number (0000 0000 0000 0000)" required>
-                        <div class="grid grid-cols-2 gap-6">
-                            <input type="text" placeholder="Expiry (MM/YY)" required>
-                            <input type="text" placeholder="CVV" required>
+                        <input type="text" placeholder="Street Address">
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+                            <input type="text" placeholder="City">
+                            <input type="text" placeholder="Postal Code">
+                            <input type="text" placeholder="Country" class="md:col-span-1">
                         </div>
-                    </div>
-                    <div class="mt-8 p-6 bg-peach-light/30 border border-peach/10 rounded-sm">
-                        <p class="text-[10px] text-stone-400 tracking-widest uppercase flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="mr-2">
-                                <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                            </svg>
-                            Secure Encrypted Transaction
-                        </p>
                     </div>
                 </section>
 
-                <button onclick="Cart.placeOrder()"
-                    class="w-full bg-stone-800 text-white py-5 uppercase text-[10px] tracking-[0.4em] hover:bg-peach-dark transition duration-500 shadow-sm">Complete
-                    Purchase</button>
+                <section>
+                    <h2 class="text-3xl italic mb-10 pb-4 border-b border-gray-100">Payment</h2>
+                    <div class="space-y-10">
+                        <div class="flex gap-12">
+                            <label class="flex items-center gap-4 cursor-pointer group">
+                                <input type="radio" name="payment"
+                                    class="w-3 h-3 appearance-none border border-black checked:bg-black transition-all"
+                                    checked>
+                                <span
+                                    class="text-[10px] uppercase tracking-widest text-gray-400 group-hover:text-black transition-colors font-bold">Card</span>
+                            </label>
+                            <label class="flex items-center gap-4 cursor-pointer group">
+                                <input type="radio" name="payment"
+                                    class="w-3 h-3 appearance-none border border-black checked:bg-black transition-all">
+                                <span
+                                    class="text-[10px] uppercase tracking-widest text-gray-400 group-hover:text-black transition-colors font-bold">Transfer</span>
+                            </label>
+                        </div>
+                        <input type="text" placeholder="Card Particulars">
+                    </div>
+                </section>
             </div>
 
-            <!-- Order Sidebar -->
-            <aside class="space-y-12">
-                <div class="bg-peach-light p-10 border border-peach/20">
-                    <h2 class="text-2xl serif italic mb-8">Your Order</h2>
-                    <div class="space-y-6" id="orderItems">
-                        <!-- Items injected by JS -->
+            <div class="lg:col-span-5 reveal">
+                <div class="p-12 border border-gray-100 bg-white">
+                    <h2 class="text-4xl italic mb-12 border-b border-gray-100 pb-6">Your Order</h2>
+                    <div id="orderItems" class="space-y-6 mb-12">
+                        <!-- Items injected -->
                     </div>
-
-                    <div class="mt-10 pt-8 border-t border-peach/30 space-y-4">
-                        <div class="flex justify-between text-xs tracking-widest uppercase text-stone-500">
-                            <span>Subtotal</span>
-                            <span id="subtotal">$0</span>
-                        </div>
-                        <div class="flex justify-between text-xs tracking-widest uppercase text-stone-500">
-                            <span>Shipping</span>
-                            <span>Free</span>
-                        </div>
-                        <div class="flex justify-between text-lg serif italic text-stone-800 pt-4">
-                            <span>Total</span>
-                            <span id="finalTotal">$0</span>
-                        </div>
+                    <div class="flex justify-between items-end border-t border-gray-100 pt-10 mb-16">
+                        <span class="text-[10px] tracking-[0.5em] uppercase text-gray-400 font-bold">Total Due</span>
+                        <span id="finalTotal" class="text-4xl italic text-black">$0</span>
                     </div>
+                    <button onclick="window.Cart.placeOrder()" class="btn-primary w-full py-6">Confirm
+                        Commission</button>
                 </div>
-            </aside>
+            </div>
         </div>
     </main>
 
-    <footer class="py-16 bg-peach-light text-center border-t border-peach/20">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-3xl tracking-[0.5em] font-light text-peach-dark mb-8">ASTAIRE</div>
-            <div class="flex flex-wrap justify-center gap-8 mb-10">
-                <a href="index.html" class="nav-link text-[10px]">Home</a>
-                <a href="collection.html" class="nav-link text-[10px]">Collections</a>
-                <a href="catalogue.html" class="nav-link text-[10px]">Shop</a>
-                <a href="about.html" class="nav-link text-[10px]">About</a>
-                <a href="#" class="nav-link text-[10px]">Contact</a>
-            </div>
-            <div class="text-stone-400 text-[9px] tracking-[0.6em] uppercase">
-                © 2024 Astaire Fine Jewellery. Empowerment & Elegance.
-            </div>
-        </div>
+    <footer class="py-24 border-t border-gray-100 text-center text-[9px] tracking-[0.5em] uppercase text-gray-400">
+        ASTAIRE • LONDON • DUBAI • NEW YORK
     </footer>
-
-    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
