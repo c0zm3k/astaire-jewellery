@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed | Astaire Fine Jewellery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #5d4d4a;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .bg-peach-light {
+            background-color: #FFF5EE;
+        }
+
+        .text-peach-dark {
+            color: #d4a383;
+        }
+
+        .nav-link {
+            letter-spacing: 0.2em;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-stone-800 antialiased">
+    <nav
+        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-peach/20">
+        <div class="nav-link text-stone-400">London • Dubai</div>
+        <a href="index.html" class="text-3xl tracking-[0.5em] font-light text-peach-dark uppercase">ASTAIRE</a>
+        <div class="hidden md:flex space-x-8 items-center">
+            <a href="collection.html" class="nav-link">Collections</a>
+            <a href="catalogue.html" class="nav-link">Shop</a>
+            <a href="order-status.html" class="nav-link">Track Order</a>
+        </div>
+    </nav>
+
+    <main class="min-h-screen pt-48 pb-24 px-6 text-center flex flex-col items-center justify-center">
+        <div class="max-w-2xl bg-peach-light p-16 rounded-sm border border-peach/20 shadow-sm">
+            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mb-10 mx-auto shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                    stroke="#d4a383" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                </svg>
+            </div>
+            <h1 class="text-4xl md:text-5xl serif italic mb-6">Thank You for your Order.</h1>
+            <p class="text-stone-500 font-light leading-relaxed mb-10 italic">Your pieces are now being prepared by our
+                master artisans.</p>
+
+            <div class="py-10 border-t border-b border-peach/30 mb-10">
+                <span class="text-[10px] tracking-[0.6em] uppercase block text-stone-400 mb-2">Order Reference</span>
+                <h3 id="order-id-display" class="text-3xl tracking-[0.2em] font-light text-peach-dark">AST-0000</h3>
+            </div>
+
+            <div class="space-y-4">
+                <a href="index.html"
+                    class="block w-full bg-stone-800 text-white py-5 uppercase text-[10px] tracking-[0.4em] hover:bg-peach-dark transition duration-500">Return
+                    Home</a>
+                <a href="order-status.html"
+                    class="block text-[10px] tracking-[0.4em] uppercase text-stone-400 hover:text-peach-dark transition">Track
+                    your shipment</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            if (id) {
+                document.getElementById('order-id-display').innerText = id;
+            }
+        });
+    </script>
+</body>
+
+</html>

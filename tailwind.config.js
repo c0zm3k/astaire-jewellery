@@ -3,24 +3,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-rose': '#E2AFA8',      // Extracted from logo (Dusty Rose)
-        'brand-pearl': '#FDFBF9',     // Clean Off-White
-        'brand-gold': '#C58C7E',      // Deeper Rose Gold
-        'brand-dark': '#3D3534',      // Warm Charcoal
-        'brand-champagne': '#E9DCC9', // Accents
+        'peach-light': '#FFF5EE',
+        'peach-solid': '#FFDAB9',
+        'peach-dark': '#d4a383',
+        'brand-dark': '#3D3534',
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'], // Luxury Headings
-        sans: ['"Poppins"', 'sans-serif'],      // Modern Body
+        serif: ['"Cormorant Garamond"', 'serif'],
+        sans: ['"Montserrat"', 'sans-serif'],
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
+        'reveal': 'fadeIn 1.5s ease forwards',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
+        fadeIn: {
+          'from': { opacity: '0', transform: 'translateY(10px)' },
+          'to': { opacity: '1', transform: 'translateY(0)' },
         }
       }
     }

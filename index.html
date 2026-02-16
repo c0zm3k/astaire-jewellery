@@ -4,228 +4,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astaire Fine Jewellery</title>
-
+    <title>Astaire Fine Jewellery | Timeless Luxury</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap"
         rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #5d4d4a;
+        }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            rose: '#C98F80',
-                            pearl: '#F5F1EE',
-                            gold: '#B76E79',
-                            dark: '#2E2A29',
-                            champagne: '#D8C3A5',
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
-                        sans: ['Poppins', 'sans-serif'],
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'reveal': 'reveal 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
-                    },
-                    keyframes: {
-                        reveal: {
-                            '0%': { transform: 'translateY(30px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        }
-                    }
-                }
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Brand Colors */
+        .bg-peach-light {
+            background-color: #FFF5EE;
+        }
+
+        /* Very soft peach tint */
+        .bg-peach-solid {
+            background-color: #FFDAB9;
+        }
+
+        /* Richer peach accent */
+        .text-peach-dark {
+            color: #d4a383;
+        }
+
+        .border-peach {
+            border-color: #FFDAB9;
+        }
+
+        .nav-link {
+            letter-spacing: 0.2em;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #d4a383;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-    </script>
-    <link rel="stylesheet" href="assets/css/animations.css">
+
+        .reveal {
+            animation: fadeIn 1.5s ease forwards;
+        }
+    </style>
 </head>
 
-<body class="bg-brand-pearl text-brand-dark font-sans antialiased page-reveal">
-    <!-- Brand Preloader -->
-    <div id="preloader" class="preloader-overlay">
-        <div class="loader"></div>
-    </div>
+<body class="bg-white text-stone-800 antialiased">
 
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-pearl/90 backdrop-blur-md shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="h-10">
-                    <img src="assets/images/logo.jpg" alt="Astaire" class="h-full">
-                </a>
-
-                <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
-                    <a href="index.html" class="text-brand-rose">Home</a>
-                    <a href="collection.html" class="hover:text-brand-gold transition duration-300">Collections</a>
-                    <a href="catalogue.html" class="hover:text-brand-gold transition duration-300">Shop</a>
-                    <a href="about.html" class="hover:text-brand-gold transition duration-300">About</a>
-                </div>
-
-                <div class="flex space-x-6 items-center">
-                    <div class="relative group">
-                        <input type="text" placeholder="Search..."
-                            class="w-0 group-hover:w-40 focus:w-40 transition-all duration-500 bg-transparent border-b border-brand-rose focus:outline-none text-sm px-2 py-1 placeholder:text-gray-400">
-                        <button class="hover:text-brand-gold transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-search">
-                                <circle cx="11" cy="11" r="8" />
-                                <path d="m21 21-4.3-4.3" />
-                            </svg>
-                        </button>
-                    </div>
-                    <a href="cart.html" class="relative hover:text-brand-gold transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-shopping-bag">
-                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                            <path d="M3 6h18" />
-                            <path d="M16 10a4 4 0 0 1-8 0" />
-                        </svg>
-                        <span id="cartCount"
-                            class="absolute -top-2 -right-2 bg-brand-rose text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-medium">0</span>
-                    </a>
-                </div>
-            </div>
+    <nav
+        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-peach/20">
+        <div class="nav-link text-stone-400">London • Dubai</div>
+        <a href="index.html" class="text-3xl tracking-[0.5em] font-light text-peach-dark">ASTAIRE</a>
+        <div class="hidden md:flex space-x-8 items-center">
+            <a href="collection.html" class="nav-link">Collections</a>
+            <a href="catalogue.html" class="nav-link">Shop</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="order-status.html" class="nav-link">Track Order</a>
+            <a href="cart.html" class="relative group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="text-stone-400 group-hover:text-peach-dark transition">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                    <path d="M3 6h18" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+                <span id="cartCount"
+                    class="absolute -top-2 -right-2 bg-peach-dark text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
         </div>
     </nav>
 
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-textured-luxury">
-        <!-- Bokeh Particles -->
-        <div class="bokeh-particle w-64 h-64 top-1/4 left-1/4"
-            style="--duration: 20s; background: rgba(255,255,255,0.3)"></div>
-        <div class="bokeh-particle w-96 h-96 bottom-1/4 right-1/3"
-            style="--duration: 25s; background: rgba(233, 220, 201, 0.2)"></div>
-        <div class="bokeh-particle w-48 h-48 top-1/2 right-1/4"
-            style="--duration: 18s; background: rgba(226, 175, 168, 0.3)"></div>
+    <header class="relative h-screen flex items-center justify-center bg-peach-light overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1598560917505-59a3ad559071?auto=format&fit=crop&w=1920&q=80"
+            class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-40" alt="Fine Diamonds">
 
-        <div
-            class="relative z-10 text-center text-white p-12 md:p-20 glass-panel drifting animate-reveal max-w-3xl min-h-[500px] flex flex-col justify-center items-center">
-            <p class="text-[10px] tracking-[0.6em] uppercase mb-6 opacity-60 font-light">Fine Jewellery Since 1994</p>
-            <h1 class="text-5xl md:text-7xl font-serif mb-12 leading-tight tracking-tight">Ethereal<br>Brilliance</h1>
+        <div class="relative z-10 text-center px-6 reveal">
+            <span class="text-[10px] tracking-[0.6em] uppercase mb-6 block text-peach-dark font-bold">The Glow of
+                Excellence</span>
+            <h1 class="text-6xl md:text-8xl font-light italic mb-10 text-stone-800 leading-tight">Gilded <br> In Light.
+            </h1>
             <a href="catalogue.html"
-                class="inline-block px-12 py-4 border border-white/30 text-white rounded-full hover:bg-white/20 hover:border-white transition duration-700 uppercase tracking-[0.3em] text-[10px] font-medium backdrop-blur-md">
-                Explore The Atelier
-            </a>
+                class="bg-white text-stone-800 border border-peach px-12 py-4 uppercase text-[10px] tracking-[0.4em] hover:bg-peach-solid transition duration-500 shadow-sm">View
+                Catalog</a>
         </div>
-    </section>
+    </header>
 
-    <section class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-            <div class="relative group overflow-hidden rounded-2xl aspect-[4/5]">
-                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=1200"
-                    alt="Jewellery Crafting"
-                    class="w-full h-full object-cover transition duration-1000 group-hover:scale-105">
-            </div>
-            <div class="space-y-8">
-                <p class="text-[10px] uppercase tracking-[0.5em] text-brand-rose font-medium">Our Craft</p>
-                <h2 class="text-4xl font-serif leading-tight">Masterpieces Defined by Brilliance</h2>
-                <p class="text-gray-500 font-light leading-relaxed">
-                    At Astaire, we believe jewellery is more than an accessory; it's a testament to moments that define
-                    a lifetime. Each piece is meticulously handcrafted in our Milan atelier, ensuring every diamond
-                    reflects its own unique story.
-                </p>
-                <a href="about.html"
-                    class="inline-block border-b border-brand-rose pb-1 text-[10px] uppercase tracking-[0.2em] hover:text-brand-rose transition duration-300">Read
-                    our story</a>
+    <section class="py-32 px-6 bg-white">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl mb-10 font-light italic">Refining the <span
+                    class="text-peach-dark">Personal</span> Glow.</h2>
+            <p class="text-stone-500 leading-loose font-light text-lg max-w-3xl mx-auto mb-16">
+                Our designs are born from the intersection of white diamonds and warm sunlight. Astaire pieces are
+                crafted to be worn as an extension of your own brilliance.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <img src="https://images.unsplash.com/photo-1616110820961-d70390196695?auto=format&fit=crop&w=500&q=80"
+                    class="rounded-t-full border border-peach/30 p-2 shadow-sm" alt="Ring Detail">
+                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=500&q=80"
+                    class="rounded-t-full border border-peach/30 p-2 shadow-sm translate-y-8" alt="Earring Detail">
+                <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=500&q=80"
+                    class="rounded-t-full border border-peach/30 p-2 shadow-sm" alt="Craftsmanship">
             </div>
         </div>
     </section>
 
-    <!-- The Atelier Video Section -->
-    <section class="relative h-[70vh] flex items-center justify-center overflow-hidden">
-        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover brightness-50">
-            <source
-                src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-jeweler-working-on-a-ring-4412-large.mp4"
-                type="video/mp4">
-        </video>
-        <div
-            class="relative z-10 text-center text-white p-12 md:p-16 glass-panel drifting max-w-2xl mx-auto flex flex-col justify-center min-h-[400px]">
-            <p class="text-[10px] uppercase tracking-[0.6em] mb-6 font-light">Experience The Process</p>
-            <h2 class="text-4xl md:text-5xl font-serif mb-10">The Artisans' Hand</h2>
-            <div class="flex justify-center">
-                <button
-                    class="w-16 h-16 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition duration-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-play ml-1">
-                        <polygon points="6 3 20 12 6 21 6 3" />
-                    </svg>
-                </button>
+    <section class="py-24 bg-peach-light">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center px-6">
+            <div class="relative">
+                <div class="absolute -top-4 -left-4 w-full h-full border border-peach-solid rounded-sm"></div>
+                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80"
+                    alt="Jewellery Set" class="relative z-10 shadow-xl">
+            </div>
+            <div class="pl-0 md:pl-10">
+                <h2 class="text-4xl serif italic mb-6">Bespoke Peach Radiance</h2>
+                <p class="text-stone-500 font-light mb-8 italic">"Jewellery is the exclamation point of a woman’s
+                    outfit."</p>
+                <ul class="space-y-4 text-xs tracking-widest uppercase text-peach-dark font-bold">
+                    <li>✦ Hand-Picked Rare Stones</li>
+                    <li>✦ 18k Rose & Yellow Gold</li>
+                    <li>✦ Private Concierge Service</li>
+                </ul>
+                <button onclick="window.location.href='about.html'"
+                    class="mt-10 bg-white px-8 py-3 border border-peach rounded-full text-[10px] tracking-widest hover:bg-peach-solid transition">Enquire
+                    Now</button>
             </div>
         </div>
     </section>
 
-    <footer class="bg-brand-dark text-brand-pearl py-20">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
-                <div class="text-center md:text-left">
-                    <img src="assets/images/logo.jpg" alt="Astaire"
-                        class="h-12 mb-6 mx-auto md:mx-0 brightness-200 grayscale">
-                    <p class="text-xs opacity-60 leading-relaxed mb-8 max-w-xs mx-auto md:mx-0">
-                        Crafting timeless beauty since 1994. Our commitment to excellence and ethical sourcing defines
-                        every piece.
-                    </p>
-                    <div class="flex justify-center md:justify-start space-x-6">
-                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-instagram">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                            </svg>
-                        </a>
-                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-facebook">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                            </svg>
-                        </a>
-                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-linkedin">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect width="4" height="12" x="2" y="9" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+    <section class="py-24 bg-white text-center">
+        <h2 class="text-3xl serif italic mb-4">Follow Astaire</h2>
+        <p class="text-stone-400 text-[10px] tracking-[0.5em] uppercase mb-12">Capture the moment on Instagram</p>
 
-                <div class="text-center">
-                    <h3 class="font-serif text-xl mb-6">Location</h3>
-                    <div
-                        class="w-full h-40 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition duration-500 border border-white/10">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.751351185347!2d75.70119257616603!3d31.25533366019558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5f5e9c489cf3%3A0x4049a5409d00c3b!2sLovely+Professional+University!5e0!3m2!1sen!2sin!4v1707669000000"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
-                    </div>
-                    <p class="mt-4 text-[10px] opacity-50 uppercase tracking-widest">Global Flagship, Milan, Italy</p>
-                </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 px-2">
+            <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=400&q=80"
+                class="aspect-square object-cover" alt="Insta 1">
+            <img src="https://images.unsplash.com/photo-1610301138402-19800649767a?auto=format&fit=crop&w=400&q=80"
+                class="aspect-square object-cover" alt="Insta 2">
+            <img src="https://images.unsplash.com/photo-1531995811006-35cb42e1a021?auto=format&fit=crop&w=400&q=80"
+                class="aspect-square object-cover" alt="Insta 3">
+            <img src="https://images.unsplash.com/photo-1630160844343-22f1f4179373?auto=format&fit=crop&w=400&q=80"
+                class="aspect-square object-cover" alt="Insta 4">
+        </div>
 
-                <div class="text-center md:text-right">
-                    <h3 class="font-serif text-xl mb-6">Explore</h3>
-                    <ul class="space-y-4 text-xs uppercase tracking-widest opacity-80">
-                        <li><a href="collection.html" class="hover:text-brand-rose">Collections</a></li>
-                        <li><a href="catalogue.html" class="hover:text-brand-rose">Shop Online</a></li>
-                        <li><a href="about.html" class="hover:text-brand-rose">Our Story</a></li>
-                        <li><a href="#" class="hover:text-brand-rose">Contact</a></li>
-                    </ul>
-                </div>
+        <a href="https://www.instagram.com/astaire_fine_jewellery/" target="_blank"
+            class="inline-block mt-12 text-peach-dark tracking-[0.3em] text-[10px] font-bold border-b border-peach">@_ASTAIRE_FINE_JEWELLERY_</a>
+    </section>
+
+    <footer class="py-16 bg-peach-light text-center border-t border-peach/20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-3xl tracking-[0.5em] font-light text-peach-dark mb-8">ASTAIRE</div>
+            <div class="flex flex-wrap justify-center gap-8 mb-10">
+                <a href="index.html" class="nav-link text-[10px]">Home</a>
+                <a href="collection.html" class="nav-link text-[10px]">Collections</a>
+                <a href="catalogue.html" class="nav-link text-[10px]">Shop</a>
+                <a href="about.html" class="nav-link text-[10px]">About</a>
+                <a href="order-status.html" class="nav-link text-[10px]">Track Order</a>
+                <a href="#" class="nav-link text-[10px]">Contact</a>
             </div>
-            <div class="mt-20 pt-8 border-t border-white/10 text-center">
-                <p class="text-[10px] opacity-40 uppercase tracking-widest">© 2024 Astaire Fine Jewellery. Empowering
-                    Elegance Everywhere.</p>
+            <div class="text-stone-400 text-[9px] tracking-[0.6em] uppercase">
+                © 2024 Astaire Fine Jewellery. Empowerment & Elegance.
             </div>
         </div>
     </footer>

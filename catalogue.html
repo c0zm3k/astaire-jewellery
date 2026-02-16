@@ -4,529 +4,480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Astaire</title>
+    <title>The Collection | Astaire Fine Jewellery</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap"
         rel="stylesheet">
-    <script src="assets/js/main.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: { rose: '#E2AFA8', pearl: '#FDFBF9', gold: '#C58C7E', dark: '#3D3534' }
-                    },
-                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Poppins', 'sans-serif'] }
-                }
-            }
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #5d4d4a;
         }
-    </script>
+
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .bg-peach-light {
+            background-color: #FFF5EE;
+        }
+
+        .bg-peach-solid {
+            background-color: #FFDAB9;
+        }
+
+        .text-peach-dark {
+            color: #d4a383;
+        }
+
+        .border-peach {
+            border-color: #FFDAB9;
+        }
+
+        .nav-link {
+            letter-spacing: 0.2em;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #d4a383;
+        }
+
+        .product-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        }
+    </style>
 </head>
 
-<body class="bg-brand-pearl text-brand-dark font-sans">
-    <!-- Brand Preloader -->
-    <div id="preloader" class="preloader-overlay">
-        <div class="loader"></div>
-    </div>
+<body class="bg-white text-stone-800 antialiased">
 
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-pearl/90 backdrop-blur-md shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="h-10">
-                    <img src="assets/images/logo.jpg" alt="Astaire" class="h-full">
-                </a>
-
-                <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
-                    <a href="index.html" class="hover:text-brand-gold transition duration-300">Home</a>
-                    <a href="collection.html" class="hover:text-brand-gold transition duration-300">Collections</a>
-                    <a href="catalogue.html" class="text-brand-rose">Shop</a>
-                    <a href="about.html" class="hover:text-brand-gold transition duration-300">About</a>
-                </div>
-
-                <div class="flex space-x-6 items-center">
-                    <div class="relative group">
-                        <input type="text" placeholder="Search..."
-                            class="w-0 group-hover:w-40 focus:w-40 transition-all duration-500 bg-transparent border-b border-brand-rose focus:outline-none text-sm px-2 py-1 placeholder:text-gray-400">
-                        <button class="hover:text-brand-gold transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-search">
-                                <circle cx="11" cy="11" r="8" />
-                                <path d="m21 21-4.3-4.3" />
-                            </svg>
-                        </button>
-                    </div>
-                    <a href="cart.html" class="relative hover:text-brand-gold transition-colors duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-shopping-bag">
-                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
-                            <path d="M3 6h18" />
-                            <path d="M16 10a4 4 0 0 1-8 0" />
-                        </svg>
-                        <span id="cartCount"
-                            class="absolute -top-2 -right-2 bg-brand-rose text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-medium">0</span>
-                    </a>
-                </div>
-            </div>
+    <nav
+        class="flex justify-between items-center px-10 py-8 fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-peach/20">
+        <div class="nav-link text-stone-400">London • Dubai</div>
+        <a href="index.html" class="text-3xl tracking-[0.5em] font-light text-peach-dark">ASTAIRE</a>
+        <div class="hidden md:flex space-x-8 items-center">
+            <a href="collection.html" class="nav-link">Collections</a>
+            <a href="catalogue.html" class="nav-link text-peach-dark">Shop</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="order-status.html" class="nav-link">Track Order</a>
+            <a href="cart.html" class="relative group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="text-stone-400 group-hover:text-peach-dark transition">
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                    <path d="M3 6h18" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+                <span id="cartCount"
+                    class="absolute -top-2 -right-2 bg-peach-dark text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            </a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 py-12">
-        <h1 class="text-4xl font-serif text-center mb-12">The Collection</h1>
+    <header class="pt-48 pb-12 bg-peach-light text-center px-6">
+        <span class="text-[10px] tracking-[0.6em] uppercase mb-6 block text-peach-dark font-bold">The Boutique</span>
+        <h1 class="text-5xl md:text-7xl font-light italic text-stone-800">The Collection</h1>
+    </header>
 
-        <div id="productContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- 1. Necklaces -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+    <div class="bg-white sticky top-[88px] z-40 border-b border-peach/10 py-6 px-10">
+        <div class="max-w-7xl mx-auto flex justify-center space-x-6 md:space-x-12">
+            <button onclick="filterProducts('all')"
+                class="filter-btn text-[10px] uppercase tracking-[0.3em] transition-all hover:text-peach-dark font-bold text-peach-dark"
+                data-category="all">All Pieces</button>
+            <button onclick="filterProducts('necklaces')"
+                class="filter-btn text-[10px] uppercase tracking-[0.3em] transition-all text-stone-400 hover:text-peach-dark"
+                data-category="necklaces">Necklaces</button>
+            <button onclick="filterProducts('rings')"
+                class="filter-btn text-[10px] uppercase tracking-[0.3em] transition-all text-stone-400 hover:text-peach-dark"
+                data-category="rings">Rings</button>
+            <button onclick="filterProducts('earrings')"
+                class="filter-btn text-[10px] uppercase tracking-[0.3em] transition-all text-stone-400 hover:text-peach-dark"
+                data-category="earrings">Earrings</button>
+            <button onclick="filterProducts('bracelets')"
+                class="filter-btn text-[10px] uppercase tracking-[0.3em] transition-all text-stone-400 hover:text-peach-dark"
+                data-category="bracelets">Bracelets</button>
+        </div>
+    </div>
+
+    <main class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+
+            <!-- 1. Necklace (Featured) -->
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="necklaces">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'n1', name:'Eternal Rose Necklace', price:1250, image:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Eternal Rose Necklace" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Necklaces</p>
-                    <h3 class="font-serif text-lg mb-2">Eternal Rose Necklace</h3>
-                    <p class="text-brand-gold font-medium">$1,250</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
+                    <h3 class="text-xl serif italic mb-3">Eternal Rose Necklace</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$1,250</p>
                 </div>
             </div>
 
-            <!-- 2. Rings -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
-                    <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'r1', name:'Starlight Diamond Ring', price:3400, image:'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+            <!-- 2. Ring -->
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="rings">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
+                    <img src="https://images.unsplash.com/photo-1626011709490-67fd07fce7de?auto=format&fit=crop&q=80&w=800"
+                        alt="Aurelia Gold Ring" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Rings</p>
-                    <h3 class="font-serif text-lg mb-2">Starlight Diamond Ring</h3>
-                    <p class="text-brand-gold font-medium">$3,400</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Rings</p>
+                    <h3 class="text-xl serif italic mb-3">Aurelia Gold Ring</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$1,450</p>
                 </div>
             </div>
 
             <!-- 3. Earrings -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="earrings">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1535633302703-b0703af03f4d?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'e1', name:'Orion Drop Earrings', price:850, image:'https://images.unsplash.com/photo-1535633302703-b0703af03f4d?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Orion Drop Earrings" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Earrings</p>
-                    <h3 class="font-serif text-lg mb-2">Orion Drop Earrings</h3>
-                    <p class="text-brand-gold font-medium">$850</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Earrings</p>
+                    <h3 class="text-xl serif italic mb-3">Orion Drop Earrings</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$850</p>
                 </div>
             </div>
 
             <!-- 4. Bangles -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="bracelets">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'b1', name:'Nova Gold Bangle', price:2100, image:'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Nova Gold Bangle" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Bangles</p>
-                    <h3 class="font-serif text-lg mb-2">Nova Gold Bangle</h3>
-                    <p class="text-brand-gold font-medium">$2,100</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Bracelets</p>
+                    <h3 class="text-xl serif italic mb-3">Nova Gold Bangle</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$2,100</p>
                 </div>
             </div>
 
             <!-- 5. Chains -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="necklaces">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1573408302185-912704439171?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'c1', name:'Venetian Link Chain', price:950, image:'https://images.unsplash.com/photo-1599643478518-17488fbbcd75?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Venetian Link Chain" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Chains</p>
-                    <h3 class="font-serif text-lg mb-2">Venetian Link Chain</h3>
-                    <p class="text-brand-gold font-medium">$950</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
+                    <h3 class="text-xl serif italic mb-3">Venetian Link Chain</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$950</p>
                 </div>
             </div>
 
             <!-- 6. Bracelets -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="bracelets">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'b2', name:'Luna Pearl Bracelet', price:1800, image:'https://images.unsplash.com/photo-1573408302185-912704439171?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Luna Pearl Bracelet" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Bracelets</p>
-                    <h3 class="font-serif text-lg mb-2">Luna Pearl Bracelet</h3>
-                    <p class="text-brand-gold font-medium">$1,800</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Bracelets</p>
+                    <h3 class="text-xl serif italic mb-3">Luna Pearl Bracelet</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$1,800</p>
                 </div>
             </div>
 
             <!-- 7. Earrings -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="earrings">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1598560917505-59a3ad5cb906?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'e2', name:'Sapphire Bloom Studs', price:1500, image:'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Sapphire Bloom Studs" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Earrings</p>
-                    <h3 class="font-serif text-lg mb-2">Sapphire Bloom Studs</h3>
-                    <p class="text-brand-gold font-medium">$1,500</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Earrings</p>
+                    <h3 class="text-xl serif italic mb-3">Sapphire Bloom Studs</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$1,500</p>
                 </div>
             </div>
 
             <!-- 8. Rings -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="rings">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1611085516891-724391e3e7f4?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'r2', name:'Dusk Emerald Ring', price:4200, image:'https://images.unsplash.com/photo-1598560917505-59a3ad5cb906?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Dusk Emerald Ring" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Rings</p>
-                    <h3 class="font-serif text-lg mb-2">Dusk Emerald Ring</h3>
-                    <p class="text-brand-gold font-medium">$4,200</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Rings</p>
+                    <h3 class="text-xl serif italic mb-3">Dusk Emerald Ring</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$4,200</p>
                 </div>
             </div>
 
             <!-- 9. Necklaces -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="necklaces">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1596944229611-372138a05c74?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'n2', name:'Celestial Heart Pendant', price:1100, image:'https://images.unsplash.com/photo-1611085516891-724391e3e7f4?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Celestial Heart Pendant" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Necklaces</p>
-                    <h3 class="font-serif text-lg mb-2">Celestial Heart Pendant</h3>
-                    <p class="text-brand-gold font-medium">$1,100</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
+                    <h3 class="text-xl serif italic mb-3">Celestial Heart Pendant</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$1,100</p>
                 </div>
             </div>
 
             <!-- 10. Bangles -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="bracelets">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1599459182885-3e2f5825700a?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'b3', name:'Imperial Diamond Bangle', price:5500, image:'https://images.unsplash.com/photo-1596944229611-372138a05c74?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Imperial Diamond Bangle" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Bangles</p>
-                    <h3 class="font-serif text-lg mb-2">Imperial Diamond Bangle</h3>
-                    <p class="text-brand-gold font-medium">$5,500</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Bracelets</p>
+                    <h3 class="text-xl serif italic mb-3">Imperial Diamond Bangle</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$5,500</p>
                 </div>
             </div>
 
             <!-- 11. Earrings -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="earrings">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1579781403261-793589799480?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'e3', name:'Rose Petal Studs', price:600, image:'https://images.unsplash.com/photo-1599459182885-3e2f5825700a?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Rose Petal Studs" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Earrings</p>
-                    <h3 class="font-serif text-lg mb-2">Rose Petal Studs</h3>
-                    <p class="text-brand-gold font-medium">$600</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Earrings</p>
+                    <h3 class="text-xl serif italic mb-3">Rose Petal Studs</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$600</p>
                 </div>
             </div>
 
             <!-- 12. Chains -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="necklaces">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'c2', name:'Gilded Rope Chain', price:1350, image:'https://images.unsplash.com/photo-1579781403261-793589799480?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Gilded Rope Chain" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Chains</p>
-                    <h3 class="font-serif text-lg mb-2">Gilded Rope Chain</h3>
-                    <p class="text-brand-gold font-medium">$1,350</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
+                    <h3 class="text-xl serif italic mb-3">Gilded Rope Chain</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$1,350</p>
                 </div>
             </div>
 
             <!-- 13. Rings -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="rings">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'r3', name:'Ocean Azure Ring', price:2800, image:'https://images.unsplash.com/photo-1589128777073-263566ae5e4d?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Ocean Azure Ring" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Rings</p>
-                    <h3 class="font-serif text-lg mb-2">Ocean Azure Ring</h3>
-                    <p class="text-brand-gold font-medium">$2,800</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Rings</p>
+                    <h3 class="text-xl serif italic mb-3">Ocean Azure Ring</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$2,800</p>
                 </div>
             </div>
 
             <!-- 14. Necklaces -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="necklaces">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1588102324903-887474eb441f?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'n3', name:'Aura Gold Lariat', price:1650, image:'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Aura Gold Lariat" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Necklaces</p>
-                    <h3 class="font-serif text-lg mb-2">Aura Gold Lariat</h3>
-                    <p class="text-brand-gold font-medium">$1,650</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
+                    <h3 class="text-xl serif italic mb-3">Aura Gold Lariat</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$1,650</p>
                 </div>
             </div>
 
             <!-- 15. Bangles -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="bracelets">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'b4', name:'Venice Cuff Bangle', price:2400, image:'https://images.unsplash.com/photo-1588102324903-887474eb441f?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Venice Cuff Bangle" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Bangles</p>
-                    <h3 class="font-serif text-lg mb-2">Venice Cuff Bangle</h3>
-                    <p class="text-brand-gold font-medium">$2,400</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Bracelets</p>
+                    <h3 class="text-xl serif italic mb-3">Venice Cuff Bangle</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$2,400</p>
                 </div>
             </div>
 
             <!-- 16. Earrings -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="earrings">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'e4', name:'Cascade Diamond Hoops', price:3200, image:'https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Cascade Diamond Hoops" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Earrings</p>
-                    <h3 class="font-serif text-lg mb-2">Cascade Diamond Hoops</h3>
-                    <p class="text-brand-gold font-medium">$3,200</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Earrings</p>
+                    <h3 class="text-xl serif italic mb-3">Cascade Diamond Hoops</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$3,200</p>
                 </div>
             </div>
 
             <!-- 17. Rings -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="rings">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1626011709490-67fd07fce7de?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'r4', name:'Tuscany Ruby Ring', price:4800, image:'https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Tuscany Ruby Ring" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Rings</p>
-                    <h3 class="font-serif text-lg mb-2">Tuscany Ruby Ring</h3>
-                    <p class="text-brand-gold font-medium">$4,800</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Rings</p>
+                    <h3 class="text-xl serif italic mb-3">Tuscany Ruby Ring</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$4,800</p>
                 </div>
             </div>
 
             <!-- 18. Chains -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="necklaces">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1635747372079-2479e08876ae?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'c3', name:'Platinum Flat Snake Chain', price:1950, image:'https://images.unsplash.com/photo-1626011709490-67fd07fce7de?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Platinum Flat Snake Chain" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Chains</p>
-                    <h3 class="font-serif text-lg mb-2">Platinum Flat Snake Chain</h3>
-                    <p class="text-brand-gold font-medium">$1,950</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Necklaces</p>
+                    <h3 class="text-xl serif italic mb-3">Platinum Flat Snake Chain</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$1,950</p>
                 </div>
             </div>
 
             <!-- 19. Earrings -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="earrings">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1596944229611-372138a05c74?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'e5', name:'Verona Chandelier Earrings', price:5100, image:'https://images.unsplash.com/photo-1635747372079-2479e08876ae?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Verona Chandelier Earrings" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Earrings</p>
-                    <h3 class="font-serif text-lg mb-2">Verona Chandelier Earrings</h3>
-                    <p class="text-brand-gold font-medium">$5,100</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Earrings</p>
+                    <h3 class="text-xl serif italic mb-3">Verona Chandelier Earrings</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$5,100</p>
                 </div>
             </div>
 
             <!-- 20. Bangles -->
-            <div class="product-card group cursor-pointer hover-lift shadow-sm hover:shadow-xl transition-all duration-500 rounded-lg overflow-hidden bg-white"
-                onclick="window.location.href='product-details.html'">
-                <div class="relative overflow-hidden bg-white aspect-[4/5] rounded-t-lg">
+            <div class="product-card group cursor-pointer" onclick="window.location.href='product-details.html'"
+                data-category="bracelets">
+                <div class="relative overflow-hidden mb-8 bg-peach-light p-4">
                     <img src="https://images.unsplash.com/photo-1596944229611-372138a05c74?auto=format&fit=crop&q=80&w=800"
-                        class="object-cover w-full h-full transition duration-700 group-hover:scale-105">
-                    <button
-                        class="add-to-cart-btn absolute bottom-4 left-4 right-4 bg-white/90 text-brand-dark py-3 uppercase text-xs tracking-widest opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-brand-rose hover:text-white"
-                        onclick="event.stopPropagation(); Cart.addItem({id:'b5', name:'Golden Orbit Bangle', price:2750, image:'https://images.unsplash.com/photo-1596944229611-372138a05c74?auto=format&fit=crop&q=80&w=200', quantity:1})">Add
-                        to Cart</button>
+                        alt="Golden Orbit Bangle" class="w-full h-[400px] object-cover product-image">
+                    <div
+                        class="absolute inset-0 bg-peach-dark/10 opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
                 </div>
-                <div class="p-6 bg-white rounded-b-lg text-center border-t border-brand-pearl">
-                    <p class="text-[10px] uppercase tracking-widest text-brand-rose mb-1">Bangles</p>
-                    <h3 class="font-serif text-lg mb-2">Golden Orbit Bangle</h3>
-                    <p class="text-brand-gold font-medium">$2,750</p>
+                <div class="text-center">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-peach-dark font-bold mb-2">Bracelets</p>
+                    <h3 class="text-xl serif italic mb-3">Golden Orbit Bangle</h3>
+                    <p class="text-sm font-light tracking-widest text-stone-500">$2,750</p>
                 </div>
             </div>
+
         </div>
     </main>
 
-    <script>
-        const container = document.getElementById('productContainer');
-        const gridBtn = document.getElementById('gridViewBtn');
-        const listBtn = document.getElementById('listViewBtn');
-
-        listBtn.addEventListener('click', () => {
-            container.classList.remove('sm:grid-cols-2', 'lg:grid-cols-3');
-            listBtn.classList.add('text-brand-rose');
-            listBtn.classList.remove('text-gray-300');
-            gridBtn.classList.remove('text-brand-rose');
-            gridBtn.classList.add('text-gray-300');
-        });
-
-        gridBtn.addEventListener('click', () => {
-            container.classList.add('sm:grid-cols-2', 'lg:grid-cols-3');
-            gridBtn.classList.add('text-brand-rose');
-            gridBtn.classList.remove('text-gray-300');
-            listBtn.classList.remove('text-brand-rose');
-            listBtn.classList.add('text-gray-300');
-        });
-    </script>
-    <footer class="bg-brand-dark text-brand-pearl py-20">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
-                <div class="text-center md:text-left">
-                    <img src="assets/images/logo.jpg" alt="Astaire"
-                        class="h-12 mb-6 mx-auto md:mx-0 brightness-200 grayscale">
-                    <p class="text-xs opacity-60 leading-relaxed mb-8 max-w-xs mx-auto md:mx-0">
-                        Crafting timeless beauty since 1994. Our commitment to excellence and ethical sourcing defines
-                        every piece.
-                    </p>
-                    <div class="flex justify-center md:justify-start space-x-6">
-                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-instagram">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                            </svg>
-                        </a>
-                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-facebook">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                            </svg>
-                        </a>
-                        <a href="#" class="hover:text-brand-rose transition-colors duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-linkedin">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect width="4" height="12" x="2" y="9" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                    <h3 class="font-serif text-xl mb-6">Location</h3>
-                    <div
-                        class="w-full h-40 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition duration-500 border border-white/10">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.751351185347!2d75.70119257616603!3d31.25533366019558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5f5e9c489cf3%3A0x4049a5409d00c3b!2sLovely+Professional+University!5e0!3m2!1sen!2sin!4v1707669000000"
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
-                    </div>
-                    <p class="mt-4 text-[10px] opacity-50 uppercase tracking-widest">Global Flagship, Milan, Italy</p>
-                </div>
-
-                <div class="text-center md:text-right">
-                    <h3 class="font-serif text-xl mb-6">Explore</h3>
-                    <ul class="space-y-4 text-xs uppercase tracking-widest opacity-80">
-                        <li><a href="collection.html" class="hover:text-brand-rose">Collections</a></li>
-                        <li><a href="catalogue.html" class="hover:text-brand-rose">Shop Online</a></li>
-                        <li><a href="about.html" class="hover:text-brand-rose">Our Story</a></li>
-                        <li><a href="#" class="hover:text-brand-rose">Contact</a></li>
-                    </ul>
-                </div>
+    <footer class="py-16 bg-peach-light text-center border-t border-peach/20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-3xl tracking-[0.5em] font-light text-peach-dark mb-8">ASTAIRE</div>
+            <div class="flex flex-wrap justify-center gap-8 mb-10">
+                <a href="index.html" class="nav-link text-[10px]">Home</a>
+                <a href="collection.html" class="nav-link text-[10px]">Collections</a>
+                <a href="catalogue.html" class="nav-link text-[10px]">Shop</a>
+                <a href="about.html" class="nav-link text-[10px]">About</a>
+                <a href="order-status.html" class="nav-link text-[10px]">Track Order</a>
+                <a href="#" class="nav-link text-[10px]">Contact</a>
             </div>
-            <div class="mt-20 pt-8 border-t border-white/10 text-center">
-                <p class="text-[10px] opacity-40 uppercase tracking-widest">© 2024 Astaire Fine Jewellery. Empowering
-                    Elegance Everywhere.</p>
+            <div class="text-stone-400 text-[9px] tracking-[0.6em] uppercase">
+                © 2024 Astaire Fine Jewellery. Empowerment & Elegance.
             </div>
         </div>
     </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
 
 </html>

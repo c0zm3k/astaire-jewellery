@@ -1,23 +1,20 @@
-/* Custom Overrides for Astaire Fine Jewellery */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap');
+/* Custom Overrides for Astaire Fine Jewellery - Quiet Luxury Peach Edition */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400&display=swap');
 
 :root {
-    --brand-rose: #E2AFA8;
-    --brand-pearl: #FDFBF9;
-    --brand-gold: #C58C7E;
+    --peach-light: #FFF5EE;
+    --peach-solid: #FFDAB9;
+    --peach-dark: #d4a383;
     --brand-dark: #3D3534;
-    --brand-champagne: #E9DCC9;
 }
 
 body {
-    background-color: var(--brand-pearl);
-    color: var(--brand-dark);
-    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #5d4d4a;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-.font-serif {
-    font-family: 'Playfair Display', serif;
+h1, h2, h3, .serif {
+    font-family: 'Cormorant Garamond', serif;
 }
